@@ -1,0 +1,9 @@
+<h3>List of tasks (Angular)</h3>
+<input [(ngModel)]="newTask.name" /><button (click)="addTask()" class="btn btn-primary">add</button>
+<ul>
+  <li *ngFor="let task of tasks">
+     {{ task.name }} :
+    {{ task.complete ? "complete" : "not complete" }}
+    <button type="button" class="btn btn-success">Complete</button><button type="button" class="btn btn-danger">Delete</button>
+  </li>
+</ul>
