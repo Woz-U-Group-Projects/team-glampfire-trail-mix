@@ -17,14 +17,21 @@ public class ImageController {
     private ImageService imageService;
 
     @PostMapping("/images/add")
-    public ResponseEntity<String> addImage(@RequestParam("file") MultipartFile file) throws IOException {
-        String id = imageService.addImage(file);
+    public ResponseEntity<String> addImage(@RequestParam("file") MultipartFile file) {
+        String id = null;
+        try {
+            id = imageService.addImage(file);
+        } catch (IOException e) {
+            return ResponseEntity.badRequest().header("Message", "Error sending image file to database").build();
+        }
         return ResponseEntity.ok("/images/" + id);
     }
 
     @GetMapping("/images/{id}")
-    public void getImage(@PathVariable String id, HttpServletResponse response) throws IOException {
-        Image image = imageService.getImage(id);
-        FileCopyUtils.copy(image.getStream(), response.getOutputStream());
+    public void getImage(@PathVariable String id, HttpServletResponse response) {
+        try {
+            Image image = imageService.getImage(id);
+            FileCopyUtils.copy(image.getStream(), response.getOutputStream());
+        } catch (Exception e) { }
     }
 }
