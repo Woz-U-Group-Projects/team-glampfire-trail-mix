@@ -22,7 +22,8 @@ public class GroupProjectApplication extends SpringBootServletInitializer {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:3000","http://localhost:4200","http://localhost:8081");
+//                registry.addMapping("/**").allowedOrigins("http://localhost:3000","http://localhost:4200","http://localhost:8081");
+                registry.addMapping("/**").allowedMethods("*"); // Allow everything - for testing
             }
         };
     }
