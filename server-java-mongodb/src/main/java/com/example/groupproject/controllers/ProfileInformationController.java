@@ -32,7 +32,7 @@ public class ProfileInformationController {
     }
 
     @PostMapping()
-    public ProfileInformation addProject(@RequestBody ProfileInformation ProfileInformation) {
+    public ProfileInformation addProject(@RequestBody profileInformation ProfileInformation) {
         return ProfileInformationRepository.save(ProfileInformation);
     }
 
