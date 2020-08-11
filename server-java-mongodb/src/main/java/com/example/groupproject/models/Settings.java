@@ -16,6 +16,7 @@ public class Settings {
     private String licenseUrl;
     private boolean poweredBy;
     private String disqusId;
+    private String theme;
 
     public String getId() {
         return id;
@@ -92,4 +93,8 @@ public class Settings {
     public void setDisqusId(String disqusId) {
         this.disqusId = disqusId;
     }
+
+    public String getTheme() { return theme; }
+
+    public void setTheme(String theme) { this.theme = theme; }
 }

@@ -11,12 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("/images")
 public class ImageController {
 
     @Autowired
     private ImageService imageService;
 
-    @PostMapping("/images/add")
+    @PostMapping("/add")
     public ResponseEntity<String> addImage(@RequestParam("file") MultipartFile file) {
         String id = null;
         try {
@@ -27,11 +28,11 @@ public class ImageController {
         return ResponseEntity.ok("/images/" + id);
     }
 
-    @GetMapping("/images/{id}")
+    @GetMapping("/{id}")
     public void getImage(@PathVariable String id, HttpServletResponse response) {
         try {
             Image image = imageService.getImage(id);
             FileCopyUtils.copy(image.getStream(), response.getOutputStream());
-        } catch (Exception e) { }
+        } catch (Exception ignored) { }
     }
 }

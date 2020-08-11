@@ -5,7 +5,6 @@ import java.util.List;
 import com.example.groupproject.models.Settings;
 import com.example.groupproject.models.SettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,42 +23,62 @@ public class SettingsController {
 
     @GetMapping()
     public Settings readSettings() {
-        List<Settings> settings = settingsRepository.findAll();
+        Settings settings = settingsRepository.findById("0").orElse(null);
 
-        if (settings.size() > 0) {
-            return settings.get(0);
-        } else
-            return null;
+        if (settings == null) {
+            return createSettings(null);
+        } else {
+            return settings;
+        }
     }
 
     @PostMapping()
     public Settings createSettings(@RequestBody Settings settings) {
-        return settingsRepository.save(settings);
-    }
+        Settings foundSettings = settingsRepository.findById("0").orElse(null);
 
-    @DeleteMapping("/{id}")
-    public String deleteSettings(@PathVariable String id) {
-        settingsRepository.deleteById(id);
-        return "{ \"id\": \"" + id + "\" }";
-    }
+        if (foundSettings == null) {
+            foundSettings = new Settings();
 
-    @PutMapping("/{id}")
-    public Settings updateSettings(@PathVariable String id, @RequestBody Settings settings) {
-        Settings foundSettings = settingsRepository.findById(id).orElse(null);
-        if (foundSettings != null) {
-            foundSettings.setBlogTitle(settings.getBlogTitle());
-            foundSettings.setBlogSubTitle(settings.getBlogSubTitle());
-            foundSettings.setBlogOwner(settings.getBlogOwner());
-            foundSettings.setCopyright(settings.getCopyright());
-            foundSettings.setLicense(settings.isLicense());
-            foundSettings.setLicenseTitle(settings.getLicenseTitle());
-            foundSettings.setLicenseUrl(settings.getLicenseUrl());
-            foundSettings.setPoweredBy(settings.isPoweredBy());
-            foundSettings.setDisqusId(settings.getDisqusId());
-            settingsRepository.save(foundSettings);
-            return foundSettings;
+            foundSettings.setId("0");
+            foundSettings.setBlogTitle("Banana News Network");
+            foundSettings.setBlogSubTitle("Because life is full of bananas and nuts");
+            foundSettings.setBlogOwner("Banana Man");
+            foundSettings.setCopyright("Copyright 2020 by " + foundSettings.getBlogOwner());
+            foundSettings.setLicense(true);
+            foundSettings.setLicenseTitle("Creative Commons License");
+            foundSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
+            foundSettings.setPoweredBy(true);
+            foundSettings.setDisqusId("");
+            foundSettings.setTheme("bootstrap.min.css");
+
+            return settingsRepository.save(foundSettings);
+        } else {
+            return settingsRepository.save(settings);
         }
-        return null;
+    }
+
+    @PutMapping()
+    public Settings updateSettings(@RequestBody Settings settings) {
+        Settings foundSettings = settingsRepository.findById("0").orElse(null);
+
+        if (foundSettings == null) {
+            foundSettings = new Settings();
+            foundSettings.setId("0");
+        }
+
+        foundSettings.setBlogTitle(settings.getBlogTitle());
+        foundSettings.setBlogSubTitle(settings.getBlogSubTitle());
+        foundSettings.setBlogOwner(settings.getBlogOwner());
+        foundSettings.setCopyright(settings.getCopyright());
+        foundSettings.setLicense(settings.isLicense());
+        foundSettings.setLicenseTitle(settings.getLicenseTitle());
+        foundSettings.setLicenseUrl(settings.getLicenseUrl());
+        foundSettings.setPoweredBy(settings.isPoweredBy());
+        foundSettings.setDisqusId(settings.getDisqusId());
+        foundSettings.setTheme(settings.getTheme());
+        settingsRepository.save(foundSettings);
+
+        return foundSettings;
     }
 
 }
