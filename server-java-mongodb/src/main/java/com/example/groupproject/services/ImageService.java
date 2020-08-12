@@ -1,4 +1,4 @@
-package com.example.groupproject.controllers;
+package com.example.groupproject.services;
 
 import com.example.groupproject.models.Image;
 import com.mongodb.BasicDBObject;

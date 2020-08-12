@@ -53,7 +53,7 @@ public class SettingsController {
 
             return settingsRepository.save(foundSettings);
         } else {
-            return settingsRepository.save(settings);
+            return foundSettings;
         }
     }
 
