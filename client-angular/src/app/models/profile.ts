@@ -1,10 +1,10 @@
-import { websocial } from './websocial';
+import { WebSocial } from './websocial';
 
-export class profile {
+export class Profile {
   id: number;
   firstName: string;
   lastName: string;
   emails: string[];
-  websites: websocial[];
-  socials: websocial[];
+  websites: WebSocial[];
+  socials: WebSocial[];
 }
