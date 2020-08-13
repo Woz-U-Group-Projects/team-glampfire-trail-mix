@@ -5,9 +5,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { TaskDisplayComponent } from "./task-display/task-display.component";
+import { AboutMeComponent } from './about-me/about-me.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskDisplayComponent],
+  declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
