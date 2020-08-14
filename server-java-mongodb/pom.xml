@@ -52,8 +52,8 @@
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>groupproject-1597366139622-rg</resourceGroup>
           <appName>groupproject-1597366139622</appName>
-          <pricingTier>P1v2</pricingTier>
-          <region>westeurope</region>
+          <pricingTier>F1</pricingTier>
+          <region>WestUS2</region>
           <runtime>
             <os>linux</os>
             <javaVersion>jre8</javaVersion>
