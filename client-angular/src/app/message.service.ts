@@ -8,9 +8,9 @@ import { Observable } from "rxjs";
 })
 export class MessageService {
 
-  apiUrl: string = "http://localhost:8080/messages";
+  apiUrl = 'http://localhost:8080/messages';
   constructor(private http: HttpClient) { }
-  createMessage(message): Observable<Message> {
+  createMessage(message: Message): Observable<Message> {
     return this.http.post<Message>(this.apiUrl, message);
   }
 }
