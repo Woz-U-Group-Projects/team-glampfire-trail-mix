@@ -1,28 +1,28 @@
 package com.example.groupproject.models;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-
-
+@Document("profileinfo")
 public class ProfileInformation {
     @Id
-    private Integer id;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
-    private Integer phoneNumber;
+    private Long phoneNumber;
     private String socialMedia;
     private String biography;
     private String userName;
     private String password;
     private String userID;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -50,11 +50,11 @@ public class ProfileInformation {
         this.email = email;
     }
 
-    public Integer getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
