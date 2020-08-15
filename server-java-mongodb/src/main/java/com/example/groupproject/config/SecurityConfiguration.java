@@ -33,10 +33,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .antMatchers(HttpMethod.POST, "/settings").hasRole("ADMIN")
 //                .anyRequest().anonymous()
                 .antMatchers(HttpMethod.POST, "/images/add").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/profileinfo").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/profileinfo/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/settings").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/settings").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/images/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/messages").permitAll()
+                .antMatchers(HttpMethod.GET, "/profileinfo").permitAll()
                 .antMatchers(HttpMethod.GET, "/settings").permitAll()
                 .and().httpBasic()
                 .and().sessionManagement().disable();
