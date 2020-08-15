@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.groupproject.models.ProfileInformationRepository;
 
 @RestController
-@RequestMapping("/ProfileInformation")
+@RequestMapping("/profileinfo")
 public class ProfileInformationController {
 
     @Autowired
