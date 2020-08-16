@@ -13,7 +13,8 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
-  declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe],
+  declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
+                 BlogDetailComponent, SafeHtmlPipe],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
