@@ -8,7 +8,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SettingsService {
-  apiUrl = 'http://localhost:8080/settings';
+  // BASE_URL = 'http://52.156.70.167:8080/glampfire/';
+  // BASE_URL = 'http://52.156.70.167:8080/glampfiredev/';
+  BASE_URL = 'http://localhost:8080/';
+  apiUrl = this.BASE_URL + 'settings';
 
   constructor(private http: HttpClient) { }
 

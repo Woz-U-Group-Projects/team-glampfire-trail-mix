@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './models/post';
 import { Observable } from 'rxjs';
+import { SettingsService } from './settings.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  api = 'http://localhost:8080/posts';
+  api = this.settings.BASE_URL + 'posts';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private settings: SettingsService) { }
 
   readPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.api);
