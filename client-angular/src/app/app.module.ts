@@ -11,10 +11,18 @@ import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { BlogLayoutComponent } from './layout/blog-layout/blog-layout.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { LoginComponent } from './login/login.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import { PostsComponent } from './admin/posts/posts.component';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
+import { HomePageComponent } from './admin/home-page/home-page.component';
 
 @NgModule({
   declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
-                 BlogDetailComponent, SafeHtmlPipe],
+                 BlogDetailComponent, SafeHtmlPipe, BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent, ContactMeMessagesComponent, HomePageComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
