@@ -12,9 +12,21 @@ export class BlogLayoutComponent implements OnInit {
   constructor(private settingsService: SettingsService) { }
 
   settings: Settings;
+  m: string;
 
   getSettings() {
-    this.settingsService.getSettings().subscribe(setttings => (this.settings = setttings));
+    this.settingsService.getSettings().subscribe(setttings => {
+      this.settings = setttings;
+
+      if (this.settings.license && this.settings.poweredBy) {
+        this.m = 'm4';
+      } else if (this.settings.license || this.settings.poweredBy) {
+        this.m = 'm6';
+      } else {
+        this.m = 'm12';
+      }
+
+    });
   }
 
   ngOnInit() {
