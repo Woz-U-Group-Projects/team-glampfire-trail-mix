@@ -49,7 +49,7 @@ public class SettingsController {
             foundSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
             foundSettings.setPoweredBy(true);
             foundSettings.setDisqusId("");
-            foundSettings.setTheme("bootstrap.min.css");
+            foundSettings.setTheme("https://www.w3schools.com/lib/w3-theme-w3schools.css");
 
             return settingsRepository.save(foundSettings);
         } else {
