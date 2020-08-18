@@ -1,10 +1,8 @@
-<div class="left-sidebar">
-    <ul>
-        <li><a routerLink="settings" routerLinkActive="active">Settings</a></li>
-        <li><a routerLink="home" routerLinkActive="active">Home Page</a></li>
-        <li><a routerLink="posts" routerLinkActive="active">Posts</a></li>
-        <li><a routerLink="profile" routerLinkActive="active">Profile</a></li>
-        <li><a routerLink="messages" routerLinkActive="active">Contact Me</a></li>
-    </ul>
+<div class="w3-sidebar w3-bar-block w3-theme-d3" style="width: 10%;">
+        <a routerLink="settings" routerLinkActive="active" class="w3-bar-item w3-button">Settings</a>
+        <a routerLink="home" routerLinkActive="active" class="w3-bar-item w3-button">Home Page</a>
+        <a routerLink="posts" routerLinkActive="active" class="w3-bar-item w3-button">Posts</a>
+        <a routerLink="profile" routerLinkActive="active" class="w3-bar-item w3-button">Profile</a>
+        <a routerLink="messages" routerLinkActive="active" class="w3-bar-item w3-button">Contact Me</a>
 </div>
-<div class="main"><router-outlet></router-outlet></div>
+<div style="margin-left: 10%;"><router-outlet></router-outlet></div>
