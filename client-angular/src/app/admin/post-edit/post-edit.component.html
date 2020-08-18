@@ -1,0 +1,6 @@
+<article id="post-content" class="w3-container w3-theme-l5">
+  <h1>{{ post.title }}</h1>
+  <div [innerHTML]="post.content | safeHtml">
+  </div>
+    
+</article>

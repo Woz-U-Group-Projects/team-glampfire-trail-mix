@@ -13,6 +13,7 @@ import { PostsComponent } from './admin/posts/posts.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
 import { LoginComponent } from './login/login.component';
+import { PostEditComponent } from './admin/post-edit/post-edit.component';
 
 const routes: Routes = [
 
@@ -34,6 +35,7 @@ const routes: Routes = [
     children: [
       { path: 'settings', component: SettingsComponent },
       { path: 'home', component: HomePageComponent },
+      { path: 'blog/:id', component: PostEditComponent },
       { path: 'posts', component: PostsComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'messages', component: ContactMeMessagesComponent}
