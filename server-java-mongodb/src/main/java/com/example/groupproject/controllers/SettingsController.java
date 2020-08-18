@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/settings")
 public class SettingsController {
+    String defaultTheme = "https://www.w3schools.com/lib/w3-theme-w3schools.css";
 
     @Autowired
     SettingsRepository settingsRepository;
@@ -49,7 +50,7 @@ public class SettingsController {
             foundSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
             foundSettings.setPoweredBy(true);
             foundSettings.setDisqusId("");
-            foundSettings.setTheme("https://www.w3schools.com/lib/w3-theme-w3schools.css");
+            foundSettings.setTheme(defaultTheme);
 
             return settingsRepository.save(foundSettings);
         } else {
@@ -75,7 +76,11 @@ public class SettingsController {
         foundSettings.setLicenseUrl(settings.getLicenseUrl());
         foundSettings.setPoweredBy(settings.isPoweredBy());
         foundSettings.setDisqusId(settings.getDisqusId());
-        foundSettings.setTheme(settings.getTheme());
+        if (settings.getTheme() == null || settings.getTheme().isEmpty()) {
+            foundSettings.setTheme("https://www.w3schools.com/lib/w3-theme-w3schools.css");
+        } else {
+            foundSettings.setTheme(settings.getTheme());
+        }
         settingsRepository.save(foundSettings);
 
         return foundSettings;
