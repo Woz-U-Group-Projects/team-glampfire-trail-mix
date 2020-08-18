@@ -1,7 +1,6 @@
 package com.example.groupproject.controllers;
 
 import com.example.groupproject.models.User;
-import com.securewebapp.auth.MongoDBProfileDetailsService;
 import com.example.groupproject.models.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
