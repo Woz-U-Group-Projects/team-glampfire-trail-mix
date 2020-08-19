@@ -20,10 +20,11 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
+import { SocialMediaComponent } from './social-media/social-media.component';
 
 @NgModule({
   declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
-                 BlogDetailComponent, SafeHtmlPipe, BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent, ContactMeMessagesComponent, HomePageComponent, PostEditComponent],
+                 BlogDetailComponent, SafeHtmlPipe, BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent, ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
