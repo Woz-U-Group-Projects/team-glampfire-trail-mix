@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../settings.service';
+import { Settings } from '../models/settings';
 
 @Component({
   selector: 'app-social-media',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialMediaComponent implements OnInit {
 
-  constructor() { }
+  settings: Settings;
 
-  ngOnInit() {
+  constructor(private settingsService: SettingsService) { }
+
+  getSettings() {
+    this.settingsService.getSettings().subscribe(setttings => {
+      this.settings = setttings;
+    });
   }
+
+
+ngOnInit() {
+  this.getSettings();
+}
 
 }

@@ -10,4 +10,8 @@ export class Settings {
     poweredBy: boolean;
     disqusId: string;
     theme: string;
+    facebook: string;
+    twitter: string;
+    instagram: string;
+    youtube: string;
 }
