@@ -14,7 +14,7 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
 import { LoginComponent } from './login/login.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
-
+import { AuthGuard } from './_helpers';
 const routes: Routes = [
 
   // Blog
@@ -22,7 +22,7 @@ const routes: Routes = [
     path: '',
     component: BlogLayoutComponent,
     children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: HomeComponent,canActivate: [AuthGuard], pathMatch: 'full' },
       { path: 'posts', component: BlogComponent },
       { path: 'blog/:id', component: BlogDetailComponent },
       { path: 'about', component: AboutMeComponent },
@@ -33,12 +33,14 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayoutComponent,
     children: [
-      { path: 'settings', component: SettingsComponent },
+      { path: 'settings', component: SettingsComponent
       { path: 'home', component: HomePageComponent },
       { path: 'blog/:id', component: PostEditComponent },
       { path: 'posts', component: PostsComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'messages', component: ContactMeMessagesComponent}
+      { path: 'login', component: LoginComponent }
+      
     ]
   },
   { path: 'login', component: LoginComponent },
