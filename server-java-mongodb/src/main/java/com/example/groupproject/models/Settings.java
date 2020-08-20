@@ -17,6 +17,10 @@ public class Settings {
     private boolean poweredBy;
     private String disqusId;
     private String theme;
+    private String facebook;
+    private String twitter;
+    private String instagram;
+    private String youtube;
 
     public String getId() {
         return id;
@@ -42,9 +46,13 @@ public class Settings {
         this.blogSubTitle = blogSubTitle;
     }
 
-    public String getBlogOwner() { return blogOwner; }
+    public String getBlogOwner() {
+        return blogOwner;
+    }
 
-    public void setBlogOwner(String blogOwner) { this.blogOwner = blogOwner; }
+    public void setBlogOwner(String blogOwner) {
+        this.blogOwner = blogOwner;
+    }
 
     public String getCopyright() {
         return copyright;
@@ -97,4 +105,20 @@ public class Settings {
     public String getTheme() { return theme; }
 
     public void setTheme(String theme) { this.theme = theme; }
+
+    public String getFacebook() { return facebook; }
+
+    public void setFacebook(String facebook) { this.facebook = facebook; }
+
+    public String getTwitter() { return twitter; }
+
+    public void setTwitter(String twitter) { this.twitter = twitter; }
+
+    public String getInstagram() { return instagram; }
+
+    public void setInstagram(String instagram) { this.instagram = instagram; }
+
+    public String getYoutube() { return youtube; }
+
+    public void setYoutube(String youtube) { this.youtube = youtube; }
 }

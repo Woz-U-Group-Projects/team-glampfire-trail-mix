@@ -21,21 +21,18 @@ import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SocialMediaComponent } from '@app/social-media/social-media.component';
+import { BasicAuthInterceptor } from '@app/_helpers/basic-auth.interceptors';
+import { ErrorInterceptor } from '@app/_helpers/error.interceptors';
 
 // used to create fake backend
 import { fakeBackendProvider } from '@app/_helpers/fake-backend';
 
-
-
-
-import { BasicAuthInterceptor } from '@app/_helpers/basic-auth.interceptors';
-import { ErrorInterceptor } from '@app/_helpers/error.interceptors';
-
 @NgModule({
-  declarations: [
-    AppComponent,
-                TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
-                 BlogDetailComponent, SafeHtmlPipe, BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent, ContactMeMessagesComponent, HomePageComponent, PostEditComponent, LoginComponent],
+  declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
+                 BlogDetailComponent, SafeHtmlPipe, BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent,
+                 PostsComponent, ProfileComponent, ContactMeMessagesComponent, HomePageComponent, PostEditComponent, LoginComponent,
+                 SocialMediaComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,ReactiveFormsModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

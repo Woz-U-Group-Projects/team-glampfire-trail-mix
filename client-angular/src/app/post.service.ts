@@ -20,4 +20,12 @@ export class PostService {
   readPost(postId: string): Observable<Post> {
     return this.http.get<Post>(`${this.api}/${postId}`);
   }
+
+  deletePost(postId: number): Observable<Post> {
+    this.http.delete(`${this.api}/${postId}`).subscribe(data => {
+      console.log('Removed post');
+    });
+
+    return null;
+  }
 }
