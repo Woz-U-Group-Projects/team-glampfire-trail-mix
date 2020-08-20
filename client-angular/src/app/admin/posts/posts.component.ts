@@ -12,6 +12,10 @@ export class PostsComponent implements OnInit {
 
   constructor(private service: PostService) { }
 
+  deletePost(id: number) {
+    this.service.deletePost(id);
+  }
+
   ngOnInit() {
     this.service.readPosts().subscribe(posts => { this.posts = posts; });
   }
