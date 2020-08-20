@@ -6,5 +6,4 @@ export class User {
     lastName: string;
     authdata?: string;
     token: string;
-    
 }

@@ -23,14 +23,13 @@ import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+import { fakeBackendProvider } from '@app/_helpers/fake-backend';
 
 
 
 
-import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
-
-import { LoginComponent } from './login';
+import { BasicAuthInterceptor } from '@app/_helpers/basic-auth.interceptors';
+import { ErrorInterceptor } from '@app/_helpers/error.interceptors';
 
 @NgModule({
   declarations: [
