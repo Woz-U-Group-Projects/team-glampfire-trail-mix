@@ -25,8 +25,6 @@ export class PostService {
     this.http.delete(`${this.api}/${postId}`).subscribe(data => {
       console.log("Removed post");
     });
-    
-    
 
     return null;
   }
