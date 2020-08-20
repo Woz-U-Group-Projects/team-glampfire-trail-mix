@@ -14,6 +14,7 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
 import { LoginComponent } from './login/login.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
+import { AuthGuard } from '@app/_helpers/auth.guard';
 
 const routes: Routes = [
 
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminLayoutComponent,
+    component: AdminLayoutComponent, canActivate: [AuthGuard],
     children: [
       { path: 'settings', component: SettingsComponent },
       { path: 'home', component: HomePageComponent },
