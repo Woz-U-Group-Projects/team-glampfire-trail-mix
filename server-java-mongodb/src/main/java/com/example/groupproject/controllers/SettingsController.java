@@ -5,9 +5,7 @@ import java.util.List;
 import com.example.groupproject.models.Settings;
 import com.example.groupproject.models.SettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,7 +47,7 @@ public class SettingsController {
             foundSettings.setLicenseTitle("Creative Commons License");
             foundSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
             foundSettings.setPoweredBy(true);
-            foundSettings.setDisqusId("");
+            foundSettings.setDisqusShortname("");
             foundSettings.setTheme(defaultTheme);
 
             return settingsRepository.save(foundSettings);
@@ -75,7 +73,7 @@ public class SettingsController {
         foundSettings.setLicenseTitle(settings.getLicenseTitle());
         foundSettings.setLicenseUrl(settings.getLicenseUrl());
         foundSettings.setPoweredBy(settings.isPoweredBy());
-        foundSettings.setDisqusId(settings.getDisqusId());
+        foundSettings.setDisqusShortname(settings.getDisqusShortname());
         if (settings.getTheme() == null || settings.getTheme().isEmpty()) {
             foundSettings.setTheme("https://www.w3schools.com/lib/w3-theme-w3schools.css");
         } else {

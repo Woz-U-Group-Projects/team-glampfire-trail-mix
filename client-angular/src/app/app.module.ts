@@ -4,7 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { TaskDisplayComponent } from "./task-display/task-display.component";
 import { AboutMeComponent } from './about-me/about-me.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
@@ -29,7 +28,7 @@ import { ErrorInterceptor } from '@app/_helpers/error.interceptors';
 import { fakeBackendProvider } from '@app/_helpers/fake-backend';
 
 @NgModule({
-  declarations: [AppComponent, TaskDisplayComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
+  declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent,
                  BlogDetailComponent, SafeHtmlPipe, BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent,
                  PostsComponent, ProfileComponent, ContactMeMessagesComponent, HomePageComponent, PostEditComponent, LoginComponent,
                  SocialMediaComponent],
