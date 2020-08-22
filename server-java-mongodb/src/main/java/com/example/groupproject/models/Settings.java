@@ -15,12 +15,13 @@ public class Settings {
     private String licenseTitle;
     private String licenseUrl;
     private boolean poweredBy;
-    private String disqusId;
+    private String disqusShortname;
     private String theme;
     private String facebook;
     private String twitter;
     private String instagram;
     private String youtube;
+    private String linkedin;
 
     public String getId() {
         return id;
@@ -42,9 +43,7 @@ public class Settings {
         return blogSubTitle;
     }
 
-    public void setBlogSubTitle(String blogSubTitle) {
-        this.blogSubTitle = blogSubTitle;
-    }
+    public void setBlogSubTitle(String blogSubTitle) { this.blogSubTitle = blogSubTitle; }
 
     public String getBlogOwner() {
         return blogOwner;
@@ -94,12 +93,12 @@ public class Settings {
         this.poweredBy = poweredBy;
     }
 
-    public String getDisqusId() {
-        return disqusId;
+    public String getDisqusShortname() {
+        return disqusShortname;
     }
 
-    public void setDisqusId(String disqusId) {
-        this.disqusId = disqusId;
+    public void setDisqusShortname(String disqusShortname) {
+        this.disqusShortname = disqusShortname;
     }
 
     public String getTheme() { return theme; }
@@ -121,4 +120,8 @@ public class Settings {
     public String getYoutube() { return youtube; }
 
     public void setYoutube(String youtube) { this.youtube = youtube; }
+
+    public String getLinkedin() { return linkedin; }
+
+    public void setLinkedin(String linkedin) { this.linkedin = linkedin; }
 }

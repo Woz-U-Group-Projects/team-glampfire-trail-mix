@@ -8,7 +8,7 @@ export class Settings {
     licenseTitle: string;
     licenseUrl: string;
     poweredBy: boolean;
-    disqusId: string;
+    disqusShortname: string;
     theme: string;
     facebook: string;
     twitter: string;
