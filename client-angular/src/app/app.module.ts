@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,12 +20,13 @@ import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
+import { QuillModule } from "ngx-quill";
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
                  ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
 })
