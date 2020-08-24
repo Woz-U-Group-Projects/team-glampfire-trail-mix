@@ -1,9 +1,9 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
@@ -20,7 +20,7 @@ import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
-import { QuillModule } from "ngx-quill";
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
