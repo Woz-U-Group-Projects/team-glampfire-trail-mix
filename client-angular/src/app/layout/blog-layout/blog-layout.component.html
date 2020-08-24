@@ -1,4 +1,4 @@
-<header class="w3-container w3-theme">
+<header class="w3-panel w3-theme">
     <h1>{{ settings.blogTitle }}</h1>
     <p>{{ settings.blogSubTitle }}</p>
 </header>
@@ -8,11 +8,11 @@
         <a routerLink="/contact" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Contact</a>
 </nav>
 
-<div class="w3-container w3-theme-l5">
+<div class="w3-panel w3-theme-l5">
     <router-outlet></router-outlet>
 </div>
 
-<footer class="w3-container w3-theme-l2 w3-row">
+<footer class="w3-panel w3-theme-l2 w3-row">
     <div class="w3-col {{ m }}">{{ settings.copyright }}</div>
     <div class="w3-col {{ m }}" *ngIf="settings.license"><a href="{{ settings.licenseUrl }}" class="w3-text-black">{{ settings.licenseTitle }}</a></div>
     <div class="w3-col {{ m }}" *ngIf="settings.poweredBy">Powered by What's the Scoop?</div>
