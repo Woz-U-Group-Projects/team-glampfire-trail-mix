@@ -1,6 +1,4 @@
-<article id="post-content" class="w3-container w3-theme-l5">
-  <h2 style="color: red;font-weight: bold;">NOTE: The following will be replaced with a WYSIWYG editor</h2>
-  
+<article id="post-content" class="w3-container w3-theme-l5">  
   <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
     <quill-editor id="post-editor" formControlName="editor" [(ngModel)]="post.content"></quill-editor>
     <button>Save</button>
