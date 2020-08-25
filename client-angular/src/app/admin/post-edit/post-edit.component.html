@@ -2,7 +2,7 @@
   <h2 style="color: red;font-weight: bold;">NOTE: The following will be replaced with a WYSIWYG editor</h2>
   
   <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
-    <quill-editor formControlName="editor"></quill-editor>
+    <quill-editor id="post-editor" formControlName="editor" [(ngModel)]="post.content"></quill-editor>
     <button>Save</button>
   </form>
 
