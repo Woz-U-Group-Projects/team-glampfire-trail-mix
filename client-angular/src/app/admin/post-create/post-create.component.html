@@ -1,0 +1,7 @@
+<article id="post-content" class="w3-container w3-theme-l5">  
+  <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+    <quill-editor id="post-editor" formControlName="editor"></quill-editor>
+    <button>Save</button>
+  </form>
+
+</article>

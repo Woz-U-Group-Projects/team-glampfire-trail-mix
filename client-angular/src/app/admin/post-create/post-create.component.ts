@@ -7,11 +7,11 @@ import { QuillModule } from "ngx-quill";
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-post-edit',
-  templateUrl: './post-edit.component.html',
-  styleUrls: ['./post-edit.component.css']
+  selector: 'app-post-create',
+  templateUrl: './post-create.component.html',
+  styleUrls: ['./post-create.component.css']
 })
-export class PostEditComponent implements OnInit {
+export class PostCreateComponent implements OnInit {
   post: Post;
   editorForm: FormGroup;
 
@@ -29,7 +29,15 @@ export class PostEditComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(this.editorForm.get('editor').value)
+    let content: string = this.editorForm.get('editor').value;
+    let post: Post = {
+      id: "test1234",
+      title: "New Post Title",
+      content: content,
+      createDate: new Date()
+    }
+    alert("Creating a post with this content: " + content);
+
     
   }
 

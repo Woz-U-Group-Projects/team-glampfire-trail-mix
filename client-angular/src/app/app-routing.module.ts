@@ -12,6 +12,7 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
 import { LoginComponent } from './login/login.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
+import { PostCreateComponent } from './admin/post-create/post-create.component';
 
 const routes: Routes = [
 
@@ -34,7 +35,8 @@ const routes: Routes = [
       { path: 'blog/:id', component: PostEditComponent },
       { path: 'posts', component: PostsComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'messages', component: ContactMeMessagesComponent}
+      { path: 'messages', component: ContactMeMessagesComponent},
+      { path: 'posts/create', component: PostCreateComponent}
     ]
   },
   { path: 'login', component: LoginComponent },
