@@ -1,5 +1,7 @@
 <article id="post-content" class="w3-container w3-theme-l5">  
   <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+    <label for="title">Title: </label>
+    <input type="text" formControlName="title" [(ngModel)]="post.title">
     <quill-editor id="post-editor" formControlName="editor" [(ngModel)]="post.content"></quill-editor>
     <button>Save</button>
   </form>

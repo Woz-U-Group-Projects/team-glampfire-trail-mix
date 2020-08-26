@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from './models/post';
 import { Observable } from 'rxjs';
 import { SettingsService } from './settings.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    Authorization: 'my-auth-token'
+  })
+};
 
 
 @Injectable({
@@ -27,5 +34,11 @@ export class PostService {
     });
 
     return null;
+  }
+
+  updatePost(post: Post): Observable<Post>{
+    alert("This is the ID of the post passed in:" + post.id);
+    return null;
+
   }
 }

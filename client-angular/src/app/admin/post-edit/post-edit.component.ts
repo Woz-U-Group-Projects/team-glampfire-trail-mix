@@ -5,6 +5,7 @@ import { Post } from '../../models/post';
 
 import { QuillModule } from "ngx-quill";
 import { FormGroup, FormControl } from '@angular/forms';
+import { HttpBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-post-edit',
@@ -21,15 +22,28 @@ export class PostEditComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.service.readPost(params.get('id')).subscribe(p => {
         this.post = p;
+        this.post.id = p.id;
       });
     });
     this.editorForm = new FormGroup(
-      { 'editor': new FormControl(null) }
+      { 'editor': new FormControl(null),
+      'title': new FormControl(null) }
     );
+    
+    
   }
 
   onSubmit() {
-    alert(this.editorForm.get('editor').value)
+    let title: string = this.editorForm.get('title').value;
+    let content: string = this.editorForm.get('editor').value
+    this.post.title = title;
+    this.post.content = content;
+    this.post.createDate = new Date();
+
+    alert("Sending this post to the service: \n" + JSON.stringify(this.post));
+
+    this.service.updatePost(this.post)
+    
     
   }
 
