@@ -1,0 +1,118 @@
+<p>setupwizard works!</p>
+<button mat-raised-button (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+  </button>
+  
+  <mat-horizontal-stepper linear #stepper>
+
+//firstname firstctrl
+    <mat-step [stepControl]="firstName" [editable]="isEditable">
+      <form [formGroup]="firstName">
+        <ng-template matStepLabel>Fill out your First name</ng-template>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstCtrl" placeholder="first Name" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+//lastname secondctrl
+    <mat-step [stepControl]="lastName" [editable]="isEditable">
+      <form [formGroup]="lastName">
+        <ng-template matStepLabel>Fill in your Last Name.</ng-template>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="LastName"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+//emailAddress thirdctrl
+    <mat-step [stepControl]="emailAddress" [editable]="isEditable">
+        <form [formGroup]="emailAddress">
+          <ng-template matStepLabel>Fill in your email Address.</ng-template>
+          <mat-form-field>
+            <mat-label>email Address</mat-label>
+            <input matInput formControlName="forthCtrl" placeholder="emailAddress" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+//socialMedia fourthctrl
+      <mat-step [stepControl]="socialMedia" [editable]="isEditable">
+        <form [formGroup]="socialMedia">
+          <ng-template matStepLabel>Please add your SocialMedia link.</ng-template>
+          <mat-form-field>
+            <mat-label>socialMedia</mat-label>
+            <input matInput formControlName="secondCtrl" placeholder="LastName"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      //biography fifthctrl
+      <mat-step [stepControl]="lastName" [editable]="isEditable">
+        <form [formGroup]="lastName">
+          <ng-template matStepLabel>Fill in your Last Name.</ng-template>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="secondCtrl" placeholder="LastName"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      //username sixthctrl
+      <mat-step [stepControl]="userName" [editable]="isEditable">
+        <form [formGroup]="userName">
+          <ng-template matStepLabel>Fill in your username.</ng-template>
+          <mat-form-field>
+            <mat-label>userName</mat-label>
+            <input matInput formControlName="sixthCtrl" placeholder="username"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      //password seventh
+      <mat-step [stepControl]="password" [editable]="isEditable">
+        <form [formGroup]="password">
+          <ng-template matStepLabel>password</ng-template>
+          <mat-form-field>
+            <mat-label>password</mat-label>
+            <input matInput formControlName="seventhCtrl" placeholder="password"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
