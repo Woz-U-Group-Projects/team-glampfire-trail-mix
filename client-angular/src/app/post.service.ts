@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from './models/post';
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 import { SettingsService } from './settings.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    Authorization: 'my-auth-token'
-  })
-};
+const headers = new HttpHeaders().set("Content-Type", "application/json");
 
 
 @Injectable({
@@ -36,9 +31,18 @@ export class PostService {
     return null;
   }
 
-  updatePost(post: Post): Observable<Post>{
-    alert("This is the ID of the post passed in:" + post.id);
-    return null;
+  updatePost(post: Post): void {
+    console.log("Updating post " + post.id)
+    // Update the post on the backend
+    this.http.put<Post>(`${this.api}/${post.id}`, post, { headers }).subscribe(
+      val => {
+        console.log("Post " + post.id + " updated\n",
+          val);
+      },
+      response => {
+        console.log("PUT call in error", response);
+      }
+    );
 
   }
 }
