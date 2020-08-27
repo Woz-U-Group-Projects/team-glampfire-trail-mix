@@ -41,13 +41,11 @@ public class SettingsController {
             foundSettings.setId("0");
             foundSettings.setBlogTitle("Banana News Network");
             foundSettings.setBlogSubTitle("Because life is full of bananas and nuts");
-            foundSettings.setBlogOwner("Banana Man");
-            foundSettings.setCopyright("Copyright 2020 by " + foundSettings.getBlogOwner());
+            foundSettings.setCopyright("Copyright 2020 by Banana Man");
             foundSettings.setLicense(true);
             foundSettings.setLicenseTitle("Creative Commons License");
             foundSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
             foundSettings.setPoweredBy(true);
-            foundSettings.setDisqusShortname("");
             foundSettings.setTheme(defaultTheme);
 
             return settingsRepository.save(foundSettings);
@@ -67,15 +65,13 @@ public class SettingsController {
 
         foundSettings.setBlogTitle(settings.getBlogTitle());
         foundSettings.setBlogSubTitle(settings.getBlogSubTitle());
-        foundSettings.setBlogOwner(settings.getBlogOwner());
         foundSettings.setCopyright(settings.getCopyright());
         foundSettings.setLicense(settings.isLicense());
         foundSettings.setLicenseTitle(settings.getLicenseTitle());
         foundSettings.setLicenseUrl(settings.getLicenseUrl());
         foundSettings.setPoweredBy(settings.isPoweredBy());
-        foundSettings.setDisqusShortname(settings.getDisqusShortname());
         if (settings.getTheme() == null || settings.getTheme().isEmpty()) {
-            foundSettings.setTheme("https://www.w3schools.com/lib/w3-theme-w3schools.css");
+            foundSettings.setTheme(defaultTheme);
         } else {
             foundSettings.setTheme(settings.getTheme());
         }

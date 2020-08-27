@@ -9,13 +9,11 @@ public class Settings {
     private String id;
     private String blogTitle;
     private String blogSubTitle;
-    private String blogOwner;
     private String copyright;
     private boolean license;
     private String licenseTitle;
     private String licenseUrl;
     private boolean poweredBy;
-    private String disqusShortname;
     private String theme;
     private String facebook;
     private String twitter;
@@ -44,14 +42,6 @@ public class Settings {
     }
 
     public void setBlogSubTitle(String blogSubTitle) { this.blogSubTitle = blogSubTitle; }
-
-    public String getBlogOwner() {
-        return blogOwner;
-    }
-
-    public void setBlogOwner(String blogOwner) {
-        this.blogOwner = blogOwner;
-    }
 
     public String getCopyright() {
         return copyright;
@@ -91,14 +81,6 @@ public class Settings {
 
     public void setPoweredBy(boolean poweredBy) {
         this.poweredBy = poweredBy;
-    }
-
-    public String getDisqusShortname() {
-        return disqusShortname;
-    }
-
-    public void setDisqusShortname(String disqusShortname) {
-        this.disqusShortname = disqusShortname;
     }
 
     public String getTheme() { return theme; }
