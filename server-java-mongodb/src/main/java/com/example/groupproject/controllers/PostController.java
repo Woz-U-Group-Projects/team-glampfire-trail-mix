@@ -1,5 +1,6 @@
 package com.example.groupproject.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.groupproject.models.Post;
@@ -23,6 +24,7 @@ public class PostController {
 
     @PostMapping
     public Post createPost(@RequestBody Post post) {
+        post.setCreateDate(new Date());
         return postRepository.save(post);
     }
     
