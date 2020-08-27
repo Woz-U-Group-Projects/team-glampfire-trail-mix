@@ -3,32 +3,34 @@ package com.example.groupproject.controllers;
 import com.example.groupproject.models.User;
 import com.example.groupproject.models.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HomeController {
+public class RegisterController {
     private final UsersRepository userRepository;
 
     @Autowired
-    public HomeController(UsersRepository userRepository) {
+    public RegisterController(UsersRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @PostMapping("/register")
-    public String createUser(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
-        User foundUser = userRepository.findByUsername(username);
+    public User createUser(@RequestBody User user) {
+        User foundUser = userRepository.findById("0").orElse(null);
+
         if (foundUser == null) {
             User newUser = new User();
-            newUser.setUsername(username);
-            newUser.setPassword(password);
+            newUser.setId("0");
+            newUser.setUsername(user.getUsername());
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+            newUser.setPassword(encoder.encode(user.getPassword()));
             userRepository.save(newUser);
-            return "login";
+            return newUser;
         } else {
-            model.addAttribute("exists", true);
-            return "register";
+            return foundUser;
         }
     }
 }

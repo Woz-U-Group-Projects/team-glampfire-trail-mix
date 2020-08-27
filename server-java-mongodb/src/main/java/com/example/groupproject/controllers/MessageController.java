@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/messages")
 public class MessageController {
 
+    private final MessagesRepository messagesRepository;
+
     @Autowired
-    MessagesRepository messagesRepository;
+    public MessageController(MessagesRepository messagesRepository) {
+        this.messagesRepository = messagesRepository;
+    }
 
     @GetMapping()
     public List<Message> readMessage() {
