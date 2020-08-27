@@ -14,4 +14,5 @@ export class Settings {
     youtube: string;
     linkedin: string;
     favicon: string;
+    headTitle: string;
 }

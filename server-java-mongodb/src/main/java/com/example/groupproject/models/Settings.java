@@ -21,6 +21,7 @@ public class Settings {
     private String youtube;
     private String linkedin;
     private String favicon;
+    private String headTitle;
 
     public String getId() {
         return id;
@@ -111,4 +112,8 @@ public class Settings {
     public String getFavicon() { return favicon; }
 
     public void setFavicon(String favicon) { this.favicon = favicon; }
+
+    public String getHeadTitle() { return headTitle; }
+
+    public void setHeadTitle(String headTitle) { this.headTitle = headTitle; }
 }

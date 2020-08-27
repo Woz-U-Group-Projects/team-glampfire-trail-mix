@@ -13,12 +13,19 @@ export class AppComponent implements OnInit {
 
   constructor(private settingsService: SettingsService, private lazyload: LazyLoadService) { }
 
+  changeTitle(title: string) {
+    const docHead = document.head || document.getElementsByTagName('head')[0];
+    const element = document.createElement('title');
+    const oldTitle = document.getElementById('dynamic-title');
+    element.id = 'dynamic-title';
+    element.text = title;
+    if (oldTitle) {
+      docHead.removeChild(oldTitle);
+    }
+    docHead.appendChild(element);
+  }
 
   changeFavicon(src: string) {
-    // if ((! src) || (src.length === 0)) {
-    //   return;
-    // }
-
     const docHead = document.head || document.getElementsByTagName('head')[0];
     const link = document.createElement('link');
     const oldLink = document.getElementById('dynamic-favicon');
@@ -36,6 +43,7 @@ export class AppComponent implements OnInit {
     this.settingsService.getSettings().subscribe(setttings => {
       this.settings = setttings;
       this.lazyload.loadExternalStyles(this.settings.theme);
+      this.changeTitle(this.settings.headTitle);
       this.changeFavicon(this.settings.favicon);
     });
   }
