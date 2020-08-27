@@ -20,6 +20,7 @@ public class Settings {
     private String instagram;
     private String youtube;
     private String linkedin;
+    private String favicon;
 
     public String getId() {
         return id;
@@ -106,4 +107,8 @@ public class Settings {
     public String getLinkedin() { return linkedin; }
 
     public void setLinkedin(String linkedin) { this.linkedin = linkedin; }
+
+    public String getFavicon() { return favicon; }
+
+    public void setFavicon(String favicon) { this.favicon = favicon; }
 }
