@@ -1,6 +1,8 @@
 package com.example.groupproject.models;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Document("profileinfo")
 public class ProfileInformation {
@@ -8,10 +10,13 @@ public class ProfileInformation {
     private String id;
     private String firstName;
     private String lastName;
-    private String pic;
-    private int age;
-    private String[] languages;
-    private String bio;
+    private String email;
+    private Long phoneNumber;
+    private String socialMedia;
+    private String biography;
+    private String userName;
+    private String password;
+    private String userID;
 
     public String getId() {
         return id;
@@ -37,35 +42,59 @@ public class ProfileInformation {
         this.lastName = lastName;
     }
 
-    public String getPic() {
-        return pic;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public Long getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPhoneNumber(Long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String[] getLanguages() {
-        return languages;
+    public String getSocialMedia() {
+        return socialMedia;
     }
 
-    public void setLanguages(String[] languages) {
-        this.languages = languages;
+    public void setSocialMedia(String socialMedia) {
+        this.socialMedia = socialMedia;
     }
 
-    public String getBio() {
-        return bio;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }

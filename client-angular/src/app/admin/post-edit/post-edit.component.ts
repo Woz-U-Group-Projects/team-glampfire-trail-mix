@@ -5,6 +5,7 @@ import { Post } from '../../models/post';
 
 import { QuillModule } from "ngx-quill";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -13,13 +14,10 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./post-edit.component.css']
 })
 export class PostEditComponent implements OnInit {
-  // Represent the post with an object
   post = new Post();
-  // Create the form
   editorForm = this.fb.group({
     title: ['', [Validators.required]]
   })
-  // Represent the form controls with objects
   title = new FormControl('');
   content = new FormControl('');
 
@@ -31,7 +29,6 @@ export class PostEditComponent implements OnInit {
       { 'editor': new FormControl(null),
       'title': new FormControl(null) }
     );
-    // Pull the post from the current route
     this.route.paramMap.subscribe(params => {
       this.service.readPost(params.get('id')).subscribe(p => {
         this.title.patchValue(p.title);

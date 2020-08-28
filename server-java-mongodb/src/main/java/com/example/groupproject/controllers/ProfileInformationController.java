@@ -1,8 +1,15 @@
 package com.example.groupproject.controllers;
+import java.util.List;
 
 import com.example.groupproject.models.ProfileInformation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.groupproject.models.ProfileInformationRepository;
 
@@ -10,41 +17,17 @@ import com.example.groupproject.models.ProfileInformationRepository;
 @RequestMapping("/profileinfo")
 public class ProfileInformationController {
 
-    private final ProfileInformationRepository profileInformationRepository;
-
     @Autowired
-    public ProfileInformationController(ProfileInformationRepository profileInformationRepository) {
-        this.profileInformationRepository = profileInformationRepository;
-    }
+    ProfileInformationRepository profileInformationRepository;
 
     @GetMapping()
-    public ProfileInformation readProfileInformation() {
-        return profileInformationRepository.findById("0").orElse(null);
+    public List<ProfileInformation> getProfileInformation() {
+        return profileInformationRepository.findAll();
     }
 
     @PostMapping()
-    public ProfileInformation createProfileInformation(@RequestBody ProfileInformation profileInformation) {
-        profileInformation.setId("0");
+    public ProfileInformation addProject(@RequestBody ProfileInformation profileInformation) {
         return profileInformationRepository.save(profileInformation);
-    }
-
-    @PutMapping()
-    public ProfileInformation updateProfileInformation(@RequestBody ProfileInformation profileInformation) {
-        ProfileInformation foundProfileInformation = profileInformationRepository.findById("0").orElse(null);
-
-        if (foundProfileInformation == null) {
-            foundProfileInformation = new ProfileInformation();
-            foundProfileInformation.setId("0");
-        }
-
-        foundProfileInformation.setFirstName(profileInformation.getFirstName());
-        foundProfileInformation.setLastName(profileInformation.getLastName());
-        foundProfileInformation.setPic(profileInformation.getPic());
-        foundProfileInformation.setAge(profileInformation.getAge());
-        foundProfileInformation.setLanguages(profileInformation.getLanguages());
-        foundProfileInformation.setBio(profileInformation.getBio());
-        profileInformationRepository.save(foundProfileInformation);
-        return foundProfileInformation;
     }
 
     @DeleteMapping("/{id}")
