@@ -1,17 +1,20 @@
 
 <h1>About Me</h1>
 
-<a>Laurel Ipsom</a>
+<p>{{ profile.firstName }} {{ profile.lastName }}</p>
 <div>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHH0bNDv0C60bQLhDz9sjjcRq4B1qZLHyBSg&usqp=CAU"/>
+<img src="{{ profile.pic }}"/>
 </div>
-<a>Age:</a>
-<p>62</p>
+<p><b>Age:</b> {{ profile.age }}</p>
 
 
-<a>Languages:</a>
-<p>English, HTML, C#, Java, Javascript </p>
+<p><b>Languages:</b></p>
+<ul *ngFor="let language of profile.languages">
+    <li>{{ language }}</li>
+</ul>
 
-<a>Bio:</a>
- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p><b>Bio:</b></p>
+<p>{{ profile.bio }}</p>
 
+<p><b>Social Media:</b></p>
+<app-social-media></app-social-media>

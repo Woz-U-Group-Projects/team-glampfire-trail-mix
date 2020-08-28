@@ -40,9 +40,22 @@ export class PostService {
           val);
       },
       response => {
-        console.log("PUT call in error", response);
+        console.log("An error message has occurred in PUT: ", response);
       }
     );
 
+  }
+
+  createPost(post: Post): void {
+    console.log("Creating post " + post.id);
+    this.http.post<Post>(`${this.api}`, post, { headers }).subscribe(
+      val => {
+        console.log("Post " + post.id + " updated\n",
+          val);
+      },
+      response => {
+        console.log("An error message has occurred in POST: ", response);
+      }
+    );
   }
 }

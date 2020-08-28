@@ -1,5 +1,6 @@
 package com.example.groupproject.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.groupproject.models.Post;
@@ -18,45 +19,45 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/posts")
 public class PostController {
 
+    private final PostRepository postRepository;
+
     @Autowired
-    PostRepository postRepository;
+    public PostController(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
     @PostMapping
     public Post createPost(@RequestBody Post post) {
+        post.setCreateDate(new Date());
         return postRepository.save(post);
     }
-    
+
     @GetMapping()
     public List<Post> getPosts() {
-      return postRepository.findAll();
-    
-    } 
-    
+        return postRepository.findAll();
+    }
+
     @GetMapping("/{id}")
-    public Post getPost(@PathVariable String id) {    
-    	Post post=postRepository.findById(id).orElse(null); 
-    return post;
-    
+    public Post getPost(@PathVariable String id) {
+        return postRepository.findById(id).orElse(null);
     }
 
     @PutMapping("/{id}")
-    public Post updatePost(@PathVariable String id,@RequestBody Post post) {
-    	Post foundPost = postRepository.findById(id).orElse(null);
+    public Post updatePost(@PathVariable String id, @RequestBody Post post) {
+        Post foundPost = postRepository.findById(id).orElse(null);
         if (foundPost != null) {
-        	foundPost.setTitle(post.getTitle());
-        	foundPost.setContent(post.getContent());
-        	foundPost.setCreateDate(post.getCreateDate());
-          postRepository.save(foundPost);
-          return foundPost;
+            foundPost.setTitle(post.getTitle());
+            foundPost.setContent(post.getContent());
+            foundPost.setCreateDate(post.getCreateDate());
+            postRepository.save(foundPost);
+            return foundPost;
         }
-    	return null;
-    	
+        return null;
     }
+
     @DeleteMapping("/{id}")
     public void deletePost(@PathVariable String id) {
-      postRepository.deleteById(id);
+        postRepository.deleteById(id);
     }
-    
-    
 
-    }
+}
