@@ -15,16 +15,12 @@ import java.io.IOException;
 @RequestMapping("/images")
 public class ImageController {
 
-    private final ImageService imageService;
-
     @Autowired
-    public ImageController(ImageService imageService) {
-        this.imageService = imageService;
-    }
+    private ImageService imageService;
 
-    @PostMapping()
+    @PostMapping("/add")
     public ResponseEntity<String> addImage(@RequestParam("file") MultipartFile file) {
-        String id;
+        String id = null;
         try {
             id = imageService.addImage(file);
         } catch (IOException e) {
