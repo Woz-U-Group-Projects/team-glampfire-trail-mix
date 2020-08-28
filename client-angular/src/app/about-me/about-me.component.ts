@@ -14,8 +14,7 @@ export class AboutMeComponent implements OnInit {
   constructor(private service: ProfileService) { }
 
   ngOnInit() {
-    this.service.readProfile().subscribe(profile => { this.profile = profile[0] });
-    
+    this.service.readProfile().subscribe(profile => { this.profile = profile; });
   }
 
 }
