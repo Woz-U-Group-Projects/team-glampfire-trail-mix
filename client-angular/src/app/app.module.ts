@@ -22,15 +22,13 @@ import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { QuillModule } from 'ngx-quill';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
-import { SetupwizardComponent } from './setupwizard/setupwizard.component';
-import { MatStepperModule, MatStepperIntl, MatFormFieldModule, MatIconModule, MatButtonModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
-                 ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent, SetupwizardComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, MatStepperModule, MatFormFieldModule, MatButtonModule, MatIconModule, QuillModule.forRoot(), BrowserAnimationsModule],
-  providers: [MatStepperIntl],
+                 ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

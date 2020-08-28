@@ -4,7 +4,7 @@ import { PostService } from '../../post.service';
 import { Post } from '../../models/post';
 
 import { QuillModule } from "ngx-quill";
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post-create',
@@ -12,33 +12,41 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent implements OnInit {
-  post: Post;
-  editorForm: FormGroup;
+  post = new Post();
+  editorForm = this.fb.group({
+    title: ['', [Validators.required]]
+  })
+  title = new FormControl('');
+  content = new FormControl('');
 
-  constructor(private service: PostService, private route: ActivatedRoute) { }
+  constructor(private service: PostService, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.service.readPost(params.get('id')).subscribe(p => {
-        this.post = p;
-      });
-    });
     this.editorForm = new FormGroup(
-      { 'editor': new FormControl(null) }
+      { 'editor': new FormControl(null),
+      'title': new FormControl(null) }
     );
+    // this.route.paramMap.subscribe(params => {
+    //   this.service.readPost(params.get('id')).subscribe(p => {
+    //     this.title.patchValue(p.title);
+    //     this.content.patchValue(p.content);
+    //     this.post = p;
+    //   });
+    // });
+
   }
 
   onSubmit() {
-    let content: string = this.editorForm.get('editor').value;
-    let post: Post = {
-      id: "test1234",
-      title: "New Post Title",
-      content: content,
-      createDate: new Date()
-    }
-    alert("Creating a post with this content: " + content);
-
+        // Pull the title and content from the form, and set as the master Post
+        this.post.title = this.title.value;
+        this.post.content = this.content.value;
     
+        // Send the post to the service
+        alert(JSON.stringify(this.post))
+        this.service.createPost(this.post);
+
+
+
   }
 
 }
