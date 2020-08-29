@@ -22,6 +22,8 @@ public class Settings {
     private String linkedin;
     private String favicon;
     private String headTitle;
+    private String github;
+
 
     public String getId() {
         return id;
@@ -116,4 +118,12 @@ public class Settings {
     public String getHeadTitle() { return headTitle; }
 
     public void setHeadTitle(String headTitle) { this.headTitle = headTitle; }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
 }

@@ -13,6 +13,7 @@ export class Settings {
     instagram: string;
     youtube: string;
     linkedin: string;
+    github: string;
     favicon: string;
     headTitle: string;
 }
