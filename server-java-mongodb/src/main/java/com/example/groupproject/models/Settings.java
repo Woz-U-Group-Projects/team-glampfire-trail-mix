@@ -9,19 +9,21 @@ public class Settings {
     private String id;
     private String blogTitle;
     private String blogSubTitle;
-    private String blogOwner;
     private String copyright;
     private boolean license;
     private String licenseTitle;
     private String licenseUrl;
     private boolean poweredBy;
-    private String disqusShortname;
     private String theme;
     private String facebook;
     private String twitter;
     private String instagram;
     private String youtube;
     private String linkedin;
+    private String favicon;
+    private String headTitle;
+    private String github;
+
 
     public String getId() {
         return id;
@@ -43,14 +45,8 @@ public class Settings {
         return blogSubTitle;
     }
 
-    public void setBlogSubTitle(String blogSubTitle) { this.blogSubTitle = blogSubTitle; }
-
-    public String getBlogOwner() {
-        return blogOwner;
-    }
-
-    public void setBlogOwner(String blogOwner) {
-        this.blogOwner = blogOwner;
+    public void setBlogSubTitle(String blogSubTitle) {
+        this.blogSubTitle = blogSubTitle;
     }
 
     public String getCopyright() {
@@ -93,35 +89,75 @@ public class Settings {
         this.poweredBy = poweredBy;
     }
 
-    public String getDisqusShortname() {
-        return disqusShortname;
+    public String getTheme() {
+        return theme;
     }
 
-    public void setDisqusShortname(String disqusShortname) {
-        this.disqusShortname = disqusShortname;
+    public void setTheme(String theme) {
+        this.theme = theme;
     }
 
-    public String getTheme() { return theme; }
+    public String getFacebook() {
+        return facebook;
+    }
 
-    public void setTheme(String theme) { this.theme = theme; }
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
 
-    public String getFacebook() { return facebook; }
+    public String getTwitter() {
+        return twitter;
+    }
 
-    public void setFacebook(String facebook) { this.facebook = facebook; }
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
 
-    public String getTwitter() { return twitter; }
+    public String getInstagram() {
+        return instagram;
+    }
 
-    public void setTwitter(String twitter) { this.twitter = twitter; }
+    public void setInstagram(String instagram) {
+        this.instagram = instagram;
+    }
 
-    public String getInstagram() { return instagram; }
+    public String getYoutube() {
+        return youtube;
+    }
 
-    public void setInstagram(String instagram) { this.instagram = instagram; }
+    public void setYoutube(String youtube) {
+        this.youtube = youtube;
+    }
 
-    public String getYoutube() { return youtube; }
+    public String getLinkedin() {
+        return linkedin;
+    }
 
-    public void setYoutube(String youtube) { this.youtube = youtube; }
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
 
-    public String getLinkedin() { return linkedin; }
+    public String getFavicon() {
+        return favicon;
+    }
 
-    public void setLinkedin(String linkedin) { this.linkedin = linkedin; }
+    public void setFavicon(String favicon) {
+        this.favicon = favicon;
+    }
+
+    public String getHeadTitle() {
+        return headTitle;
+    }
+
+    public void setHeadTitle(String headTitle) {
+        this.headTitle = headTitle;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
 }

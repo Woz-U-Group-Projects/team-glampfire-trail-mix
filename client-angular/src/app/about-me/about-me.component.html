@@ -1,1 +1,20 @@
-<p>about-me works!</p>
+
+<h1>About Me</h1>
+
+<p>{{ profile.firstName }} {{ profile.lastName }}</p>
+<div>
+<img src="{{ profile.pic }}"/>
+</div>
+<p><b>Age:</b> {{ profile.age }}</p>
+
+
+<p><b>Languages:</b></p>
+<ul *ngFor="let language of profile.languages">
+    <li>{{ language }}</li>
+</ul>
+
+<p><b>Bio:</b></p>
+<p>{{ profile.bio }}</p>
+
+<p><b>Social Media:</b></p>
+<app-social-media></app-social-media>
