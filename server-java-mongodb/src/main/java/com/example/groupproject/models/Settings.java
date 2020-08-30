@@ -45,7 +45,9 @@ public class Settings {
         return blogSubTitle;
     }
 
-    public void setBlogSubTitle(String blogSubTitle) { this.blogSubTitle = blogSubTitle; }
+    public void setBlogSubTitle(String blogSubTitle) {
+        this.blogSubTitle = blogSubTitle;
+    }
 
     public String getCopyright() {
         return copyright;
@@ -87,37 +89,69 @@ public class Settings {
         this.poweredBy = poweredBy;
     }
 
-    public String getTheme() { return theme; }
+    public String getTheme() {
+        return theme;
+    }
 
-    public void setTheme(String theme) { this.theme = theme; }
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
 
-    public String getFacebook() { return facebook; }
+    public String getFacebook() {
+        return facebook;
+    }
 
-    public void setFacebook(String facebook) { this.facebook = facebook; }
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
 
-    public String getTwitter() { return twitter; }
+    public String getTwitter() {
+        return twitter;
+    }
 
-    public void setTwitter(String twitter) { this.twitter = twitter; }
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
 
-    public String getInstagram() { return instagram; }
+    public String getInstagram() {
+        return instagram;
+    }
 
-    public void setInstagram(String instagram) { this.instagram = instagram; }
+    public void setInstagram(String instagram) {
+        this.instagram = instagram;
+    }
 
-    public String getYoutube() { return youtube; }
+    public String getYoutube() {
+        return youtube;
+    }
 
-    public void setYoutube(String youtube) { this.youtube = youtube; }
+    public void setYoutube(String youtube) {
+        this.youtube = youtube;
+    }
 
-    public String getLinkedin() { return linkedin; }
+    public String getLinkedin() {
+        return linkedin;
+    }
 
-    public void setLinkedin(String linkedin) { this.linkedin = linkedin; }
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
 
-    public String getFavicon() { return favicon; }
+    public String getFavicon() {
+        return favicon;
+    }
 
-    public void setFavicon(String favicon) { this.favicon = favicon; }
+    public void setFavicon(String favicon) {
+        this.favicon = favicon;
+    }
 
-    public String getHeadTitle() { return headTitle; }
+    public String getHeadTitle() {
+        return headTitle;
+    }
 
-    public void setHeadTitle(String headTitle) { this.headTitle = headTitle; }
+    public void setHeadTitle(String headTitle) {
+        this.headTitle = headTitle;
+    }
 
     public String getGithub() {
         return github;
