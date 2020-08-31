@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from './models/User';
+import { User } from './models/user';
 import { Observable, Subscriber } from 'rxjs';
 import { SettingsService } from './settings.service';
 
-const headers = new HttpHeaders().set("Content-Type", "application/json");
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 
 @Injectable({
@@ -32,26 +32,26 @@ const headers = new HttpHeaders().set("Content-Type", "application/json");
     }
 
     updateUser(user: User): void {
-        console.log("Updating user " + user.id)
-        //Update the user on the backend
+        console.log('Updating user ' + user.id)
+        // Update the user on the backend
         this.http.put<User>(`${this.api}/${user.id}`, user, { headers}).subscribe(
             val => {
-                console.log("User " + user.id + " updated\n", val);
+                console.log('User ' + user.id + ' updated\n', val);
             },
             response => {
-                console.log("An error message has occurred in PUT: ", response);
+                console.log('An error message has occurred in PUT: ', response);
             }
         );
     }
 
     createUser(user: User): void {
-        console.log("Creating User " + user.id);
+        console.log('Creating User ' + user.id);
         this.http.post<User>(`${this.api}`, user, {headers}).subscribe(
             val => {
-                console.log("User " + user.id + "updated\n", val );
+                console.log('User ' + user.id + 'updated\n', val );
             },
             response => {
-                console.log("An error message has occurred in USER: ", response);
+                console.log('An error message has occurred in USER: ', response);
             }
         );
     }
