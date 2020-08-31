@@ -22,11 +22,13 @@ import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { QuillModule } from 'ngx-quill';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
+import { SetupwizardComponent } from './setupwizard/setupwizard.component';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
-                 ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent],
+                 ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent,
+                 SetupwizardComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent]
