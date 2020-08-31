@@ -4,7 +4,7 @@ import { User } from './models/user';
 import { Observable, Subscriber } from 'rxjs';
 import { SettingsService } from './settings.service';
 
-const headers = new HttpHeaders().set("Content-Type", "application/json");
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 
 @Injectable({
@@ -15,43 +15,43 @@ const headers = new HttpHeaders().set("Content-Type", "application/json");
 
     constructor(private http: HttpClient, private settings: SettingsService) { }
 
-    readUsers(): Observable<User[]> {
-        return this.http.get<User[]>(this.api);
+    // readUsers(): Observable<User[]> {
+    //     return this.http.get<User[]>(this.api);
 
-    }
-    readUser(userId: string): Observable<User> {
-        return this.http.get<User>(`${this.api}/${userId}`);
+    // }
+    readUser(): Observable<User> {
+        return this.http.get<User>(`${this.api}`);
     }
 
-    deleteUser(userId: number): Observable<User> {
-        this.http.delete(`${this.api}/${userId}`).subscribe(data => {
-            console.log('Removed user');
-        });
+    // deleteUser(userId: number): Observable<User> {
+    //     this.http.delete(`${this.api}/${userId}`).subscribe(data => {
+    //         console.log('Removed user');
+    //     });
 
-        return null;
-    }
+    //     return null;
+    // }
 
     updateUser(user: User): void {
-        console.log("Updating user " + user.id)
-        //Update the user on the backend
-        this.http.put<User>(`${this.api}/${user.id}`, user, { headers}).subscribe(
+        console.log('Updating user ' + user.id)
+        // Update the user on the backend
+        this.http.put<User>(`${this.api}`, user, { headers}).subscribe(
             val => {
-                console.log("User " + user.id + " updated\n", val);
+                console.log('User ' + user.id + ' updated\n', val);
             },
             response => {
-                console.log("An error message has occurred in PUT: ", response);
+                console.log('An error message has occurred in PUT: ', response);
             }
         );
     }
 
     createUser(user: User): void {
-        console.log("Creating User " + user.id);
+        console.log('Creating User ' + user.id);
         this.http.post<User>(`${this.api}`, user, {headers}).subscribe(
             val => {
-                console.log("User " + user.id + "updated\n", val );
+                console.log('User ' + user.id + 'updated\n', val );
             },
             response => {
-                console.log("An error message has occurred in USER: ", response);
+                console.log('An error message has occurred in USER: ', response);
             }
         );
     }

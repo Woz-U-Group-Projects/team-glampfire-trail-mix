@@ -12,6 +12,7 @@ public class ProfileInformation {
     private int age;
     private String[] languages;
     private String bio;
+    private String email;
 
     public String getId() {
         return id;
@@ -68,4 +69,8 @@ public class ProfileInformation {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 }
