@@ -15,26 +15,26 @@ const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     constructor(private http: HttpClient, private settings: SettingsService) { }
 
-    readUsers(): Observable<User[]> {
-        return this.http.get<User[]>(this.api);
+    // readUsers(): Observable<User[]> {
+    //     return this.http.get<User[]>(this.api);
 
-    }
-    readUser(userId: string): Observable<User> {
-        return this.http.get<User>(`${this.api}/${userId}`);
+    // }
+    readUser(): Observable<User> {
+        return this.http.get<User>(`${this.api}`);
     }
 
-    deleteUser(userId: number): Observable<User> {
-        this.http.delete(`${this.api}/${userId}`).subscribe(data => {
-            console.log('Removed user');
-        });
+    // deleteUser(userId: number): Observable<User> {
+    //     this.http.delete(`${this.api}/${userId}`).subscribe(data => {
+    //         console.log('Removed user');
+    //     });
 
-        return null;
-    }
+    //     return null;
+    // }
 
     updateUser(user: User): void {
         console.log('Updating user ' + user.id)
         // Update the user on the backend
-        this.http.put<User>(`${this.api}/${user.id}`, user, { headers}).subscribe(
+        this.http.put<User>(`${this.api}`, user, { headers}).subscribe(
             val => {
                 console.log('User ' + user.id + ' updated\n', val);
             },

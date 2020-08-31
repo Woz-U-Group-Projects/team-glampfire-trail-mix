@@ -6,4 +6,5 @@ export class Profile {
   age: number;
   languages: string[];
   bio: string;
+  email: string;
 }

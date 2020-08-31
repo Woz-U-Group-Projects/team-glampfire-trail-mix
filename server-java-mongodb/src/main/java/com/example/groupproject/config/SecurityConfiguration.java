@@ -42,6 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, "/profileinfo/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/settings").permitAll()
                 .antMatchers(HttpMethod.PUT, "/settings").permitAll()
+                .antMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/users").hasRole("ADMIN")
                 // permitAll()
                 .antMatchers(HttpMethod.POST, "/register").permitAll()
                 .antMatchers(HttpMethod.GET, "/images/**").permitAll()
@@ -50,6 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/posts/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/profileinfo").permitAll()
                 .antMatchers(HttpMethod.GET, "/settings").permitAll()
+                .antMatchers(HttpMethod.POST, "/users").permitAll()
                 .and().httpBasic()
                 .and().sessionManagement().disable();
     }
