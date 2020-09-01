@@ -18,4 +18,8 @@ export class SettingsService {
   getSettings(): Observable<Settings> {
     return this.http.get<Settings>(this.apiUrl);
   }
+
+  putSettings(settings: Settings): Observable<Settings> {
+    return this.http.put<Settings>(this.apiUrl, settings);
+  }
 }

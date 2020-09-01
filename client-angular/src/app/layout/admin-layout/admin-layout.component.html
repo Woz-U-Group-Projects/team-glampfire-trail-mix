@@ -1,17 +1,15 @@
-<header class="w3-container w3-bar w3-theme">
-        <h1 class="w3-bar-item w3-mobile">What's the Scoop?</h1>
-        <a routerLink="../logout" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
+<header class="w3-container w3-theme">
+        <h1>What's the Scoop?</h1>
 </header>
+<nav class="w3-bar w3-theme-d3">
+        <a routerLink="settings" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Settings</a>
+        <a routerLink="posts" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Posts</a>
+        <a routerLink="profile" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Profile</a>
+        <a routerLink="messages" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Contact Me</a>
+        <a routerLink="../logout" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
+        <a routerLink="" class="w3-bar-item w3-button w3-mobile w3-right">Blog</a>
+</nav>
 
 <div class="w3-panel">
-        <div class="w3-sidebar w3-bar-block w3-theme-d3" style="width: 10%;">
-                <a routerLink="settings" routerLinkActive="active" class="w3-bar-item w3-button">Settings</a>
-                <a routerLink="posts" routerLinkActive="active" class="w3-bar-item w3-button">Posts</a>
-                <a routerLink="profile" routerLinkActive="active" class="w3-bar-item w3-button">Profile</a>
-                <a routerLink="messages" routerLinkActive="active" class="w3-bar-item w3-button">Contact Me</a>
-        </div>
-        <div style="margin-left: 10%;">
-                <router-outlet></router-outlet>
-        </div>
+        <router-outlet></router-outlet>
 </div>
-    
