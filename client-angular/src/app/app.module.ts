@@ -24,24 +24,19 @@ import { PostCreateComponent } from './admin/post-create/post-create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from '@app/_helpers/basic-auth.interceptors';
 import { ErrorInterceptor } from '@app/_helpers/error.interceptors';
-
-// used to create fake backend
-import { fakeBackendProvider } from '@app/_helpers/fake-backend';
-
 import { SetupwizardComponent } from './setupwizard/setupwizard.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
                  ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent,
-                 SetupwizardComponent],
+                 SetupwizardComponent,
+                 LogoutComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-        // provider used to create fake backend
-        fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

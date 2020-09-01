@@ -11,6 +11,7 @@ import { PostsComponent } from './admin/posts/posts.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { AuthGuard } from '@app/_helpers/auth.guard';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent},
   { path: '**', redirectTo: '' }
 ];
 
