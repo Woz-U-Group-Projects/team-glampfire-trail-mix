@@ -5,7 +5,7 @@ import { Settings } from '@app/models/settings';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '@app/_services';
-import { User } from '@app/models/User';
+import { User } from '@app/models/user';
 
 @Component({
   selector: 'app-root',
