@@ -9,8 +9,8 @@
           </div>
           <div class="post-title">
               <a [routerLink]="['/blog', post.id]">{{ post.title }}</a>
-              <a [routerLink]="['/admin/blog', post.id]">Edit</a>
-              <a href="javascript:void(0);" (click)="deletePost(post.id)">Delete</a>
+              <a [routerLink]="['/admin/blog', post.id]"> Edit </a>
+              <a href="javascript:void(0);" (click)="deletePost(post.id)"> Delete</a>
           </div>
       </div>
   </div>
