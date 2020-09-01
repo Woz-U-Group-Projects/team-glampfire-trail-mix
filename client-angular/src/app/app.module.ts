@@ -26,13 +26,15 @@ import { BasicAuthInterceptor } from '@app/_helpers/basic-auth.interceptors';
 import { ErrorInterceptor } from '@app/_helpers/error.interceptors';
 import { SetupwizardComponent } from './setupwizard/setupwizard.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UserComponent } from './admin/user/user.component';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
                  ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent,
                  SetupwizardComponent,
-                 LogoutComponent],
+                 LogoutComponent,
+                 UserComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

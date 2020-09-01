@@ -114,8 +114,8 @@
                 <input type="text" class="w3-input" id="github" [(ngModel)]="settings.github" name="github"
                     #github="ngModel">
             </p>
+            <p [hidden]="!submitted" class="w3-panel w3-green">All of the settings are saved!</p>
             <button type="submit">Save</button>
-            <div [hidden]="!submitted" class="w3-panel w3-green">All of the settings are saved!</div>
         </form>
     </div>
 </div>

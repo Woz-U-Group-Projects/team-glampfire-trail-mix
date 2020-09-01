@@ -1,58 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from './models/User';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SettingsService } from './settings.service';
-
-const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
 
 @Injectable({
     providedIn: 'root'
-  })
-  export class UserService{
+})
+export class UserService {
     api = this.settings.BASE_URL + 'users';
 
     constructor(private http: HttpClient, private settings: SettingsService) { }
 
-    // readUsers(): Observable<User[]> {
-    //     return this.http.get<User[]>(this.api);
-
-    // }
-    readUser(): Observable<User> {
-        return this.http.get<User>(`${this.api}`);
+    createUser(user: User): Observable<User> {
+        console.log('Creating User ' + user.id);
+        return this.http.post<User>(this.api, user);
     }
 
-    // deleteUser(userId: number): Observable<User> {
-    //     this.http.delete(`${this.api}/${userId}`).subscribe(data => {
-    //         console.log('Removed user');
-    //     });
+    readUser(): Observable<User> {
+        return this.http.get<User>(this.api);
+    }
 
-    //     return null;
-    // }
-
-    updateUser(user: User): void {
+    updateUser(user: User): Observable<User> {
         console.log('Updating user ' + user.id)
         // Update the user on the backend
-        this.http.put<User>(`${this.api}`, user, { headers}).subscribe(
-            val => {
-                console.log('User ' + user.id + ' updated\n', val);
-            },
-            response => {
-                console.log('An error message has occurred in PUT: ', response);
-            }
-        );
+        return this.http.put<User>(this.api, user);
     }
-
-    createUser(user: User): void {
-        console.log('Creating User ' + user.id);
-        this.http.post<User>(`${this.api}`, user, {headers}).subscribe(
-            val => {
-                console.log('User ' + user.id + 'updated\n', val );
-            },
-            response => {
-                console.log('An error message has occurred in USER: ', response);
-            }
-        );
-    }
-  }
+}

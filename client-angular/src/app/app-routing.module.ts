@@ -15,6 +15,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { AuthGuard } from '@app/_helpers/auth.guard';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
+import { UserComponent } from '@app/admin/user/user.component';
 
 const routes: Routes = [
 
@@ -38,7 +39,8 @@ const routes: Routes = [
       { path: 'posts', component: PostsComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'messages', component: ContactMeMessagesComponent},
-      { path: 'posts/create', component: PostCreateComponent}
+      { path: 'posts/create', component: PostCreateComponent},
+      { path: 'user', component: UserComponent }
     ]
   },
   { path: 'login', component: LoginComponent },

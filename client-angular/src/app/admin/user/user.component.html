@@ -1,0 +1,23 @@
+<div class="w3-container">
+    <div class="w3-card-4">
+        <div class="w3-panel w3-theme">
+            <h1>User</h1>
+        </div>
+
+        <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #userForm="ngForm">
+            <p>
+                <label for="username">Username</label>
+                <input type="text" class="w3-input" id="username" required [(ngModel)]="user.username" name="username" #username="ngModel">
+            </p>
+            <p [hidden]="username.valid || username.pristine" class="w3-panel w3-red">
+                Username is required
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input type="password" class="w3-input" id="password" [(ngModel)]="user.password" name="password" #password="ngModel">
+            </p>
+            <p [hidden]="!submitted" class="w3-panel w3-green">Login information is saved!</p>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
