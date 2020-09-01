@@ -69,17 +69,24 @@ public class UserController {
     }
 
     @PutMapping()
-    public void updateUser(@RequestBody User user) {
+    public User updateUser(@RequestBody User user) {
         User foundUser = repository.findById("0").orElse(null);
 
         if (foundUser == null) {
-            return;
+            return null;
         }
 
         foundUser.setUsername(user.getUsername());
-        foundUser.setPassword(encoder.encode(user.getPassword()));
+
+        String password = user.getPassword();
+        if ( ( password != null ) && ( ! password.isEmpty() ) ) {
+            foundUser.setPassword(encoder.encode(password));
+        }
 
         repository.save(foundUser);
+
+        foundUser.setPassword("");
+        return foundUser;
     }
 
 }
