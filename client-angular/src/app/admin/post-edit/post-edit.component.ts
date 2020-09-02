@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../post.service';
 import { Post } from '../../models/post';
 
-import { QuillModule } from "ngx-quill";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 
@@ -18,18 +17,18 @@ export class PostEditComponent implements OnInit {
   // Create the form
   editorForm = this.fb.group({
     title: ['', [Validators.required]]
-  })
+  });
   // Represent the form controls with objects
   title = new FormControl('');
   content = new FormControl('');
 
   constructor(private service: PostService, private route: ActivatedRoute, private fb: FormBuilder) { }
-  
+
 
   ngOnInit() {
     this.editorForm = new FormGroup(
-      { 'editor': new FormControl(null),
-      'title': new FormControl(null) }
+      { editor: new FormControl(null),
+      title: new FormControl(null) }
     );
     // Pull the post from the current route
     this.route.paramMap.subscribe(params => {
@@ -44,7 +43,7 @@ export class PostEditComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     // Pull the title and content from the form, and set as the master Post
     this.post.title = this.title.value;
     this.post.content = this.content.value;

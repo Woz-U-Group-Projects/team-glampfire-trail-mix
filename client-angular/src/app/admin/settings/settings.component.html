@@ -5,7 +5,6 @@
         </div>
 
         <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #settingsForm="ngForm">
-            <h2>Header</h2>
             <p>
                 <label for="blogTitle">Blog Title</label>
                 <input type="text" class="w3-input" id="blogTitle" required [(ngModel)]="settings.blogTitle"

@@ -1,9 +1,22 @@
-<article id="post-content" class="w3-container w3-theme-l5">  
-  <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
-    <label for="title">Title: </label>
-    <input type="text" [formControl]="title">
-    <quill-editor id="post-editor" [formControl]="content"></quill-editor>
-    <button>Save</button>
-  </form>
+<div class="w3-container">
+  <div class="w3-card-4">
+    <div class="w3-panel w3-theme">
+      <h1>Create Post</h1>
+    </div>
 
-</article>
+    <article id="post-content" class="w3-container">
+      <form class="w3-container w3-padding" [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+        <p>
+        <label for="title">Title: </label>
+        <input type="text" class="w3-input" [formControl]="title">
+      </p>
+        <label for="editor">Content: </label>
+        <div id="editor" class="w3-input">
+
+          <quill-editor id="post-editor" [formControl]="content"></quill-editor>
+        </div> <button>Save</button>
+      </form>
+
+    </article>
+  </div>
+</div>
