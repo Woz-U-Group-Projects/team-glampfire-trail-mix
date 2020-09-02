@@ -70,6 +70,14 @@ public class SettingsController {
         } else {
             foundSettings.setTheme(settings.getTheme());
         }
+        foundSettings.setFacebook(settings.getFacebook());
+        foundSettings.setTwitter(settings.getTwitter());
+        foundSettings.setInstagram(settings.getInstagram());
+        foundSettings.setYoutube(settings.getYoutube());
+        foundSettings.setLinkedin(settings.getLinkedin());
+        foundSettings.setGithub(settings.getGithub());
+        foundSettings.setFavicon(settings.getFavicon());
+        foundSettings.setHeadTitle(settings.getHeadTitle());
         settingsRepository.save(foundSettings);
 
         return foundSettings;
