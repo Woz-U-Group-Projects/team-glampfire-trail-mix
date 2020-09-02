@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -66,6 +68,14 @@ public class UserController {
         foundUser.setPassword("");
 
         return foundUser;
+    }
+
+    @GetMapping("/registered")
+    public String isRegistered() {
+        List<User> users = repository.findAll();
+        Boolean registered =  users.size() > 0;
+
+        return "{ \"status\": " + registered.toString() + " }";
     }
 
     @PutMapping()
