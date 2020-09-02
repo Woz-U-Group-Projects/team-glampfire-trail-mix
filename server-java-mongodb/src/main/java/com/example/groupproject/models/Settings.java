@@ -20,9 +20,9 @@ public class Settings {
     private String instagram;
     private String youtube;
     private String linkedin;
+    private String github;
     private String favicon;
     private String headTitle;
-    private String github;
 
 
     public String getId() {

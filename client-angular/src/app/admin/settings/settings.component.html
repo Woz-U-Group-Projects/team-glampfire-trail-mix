@@ -67,12 +67,9 @@
             <p>
                 <img src="{{settings.favicon}}" style="width: 32px;">
                 <label for="favicon">Favicon URL</label>
-                <input type="text" class="w3-input" id="favicon" required [(ngModel)]="settings.favicon" name="favicon"
+                <input type="text" class="w3-input" id="favicon" [(ngModel)]="settings.favicon" name="favicon"
                     #favicon="ngModel">
             </p>
-            <div [hidden]="favicon.valid || favicon.pristine" class="w3-panel w3-red">
-                A favicon is required
-            </div>
             <p>
                 <label for="headTitle">Web Page Title</label>
                 <input type="text" class="w3-input" id="headTitle" required [(ngModel)]="settings.headTitle"

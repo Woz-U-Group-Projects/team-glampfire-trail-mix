@@ -41,6 +41,7 @@ public class SettingsController {
             newSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
             newSettings.setPoweredBy(true);
             newSettings.setTheme(defaultTheme);
+            newSettings.setHeadTitle("My Blog");
 
             return settingsRepository.save(newSettings);
         } else {
