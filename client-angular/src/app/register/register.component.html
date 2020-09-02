@@ -1,0 +1,29 @@
+<div class="w3-card-4 register-card">
+    <header class="w3-container w3-light-grey">
+        <h1>Register</h1>
+    </header>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="w3-container">
+        <div class="w3-panel w3-padding">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="w3-input w3-border"
+                required [(ngModel)]="user.username" #username="ngModel">
+            <div [hidden]="username.valid || username.untouched" class="w3-panel w3-red">
+                <div>Username is required</div>
+            </div>
+        </div>
+        <div class="w3-panel w3-padding">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" class="w3-input w3-border"
+                required #password="ngModel">
+            <div [hidden]="password.valid || password.pristine || validPassword" class="w3-panel w3-red">
+                <div>Password is required</div>
+            </div>
+        </div>
+        <div class="w3-panel w3-padding">
+            <button class="w3-button w3-border w3-round-xxlarge">
+                Register
+            </button>
+        </div>
+    </form>
+</div>

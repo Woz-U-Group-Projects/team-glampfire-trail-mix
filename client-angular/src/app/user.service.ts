@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './models/user';
 import { Observable } from 'rxjs';
 import { SettingsService } from './settings.service';
+import { Registered } from '@app/models/registered';
 
 @Injectable({
     providedIn: 'root'
@@ -25,5 +26,9 @@ export class UserService {
         console.log('Updating user ' + user.id)
         // Update the user on the backend
         return this.http.put<User>(this.api, user);
+    }
+
+    isRegistered(): Observable<Registered> {
+        return this.http.get<Registered>(this.api + '/registered');
     }
 }

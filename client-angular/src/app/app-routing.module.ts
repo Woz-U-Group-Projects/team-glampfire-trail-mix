@@ -16,6 +16,7 @@ import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { AuthGuard } from '@app/_helpers/auth.guard';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
 import { UserComponent } from '@app/admin/user/user.component';
+import { RegisterComponent } from '@app/register/register.component';
 
 const routes: Routes = [
 
@@ -38,13 +39,14 @@ const routes: Routes = [
       { path: 'blog/:id', component: PostEditComponent },
       { path: 'posts', component: PostsComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'messages', component: ContactMeMessagesComponent},
-      { path: 'posts/create', component: PostCreateComponent},
+      { path: 'messages', component: ContactMeMessagesComponent },
+      { path: 'posts/create', component: PostCreateComponent },
       { path: 'user', component: UserComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent},
+  { path: 'logout', component: LogoutComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '**', redirectTo: '' }
 ];
 

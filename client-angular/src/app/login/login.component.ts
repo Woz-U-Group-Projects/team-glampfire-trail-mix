@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '@app/_services';
+import { UserService } from '@app/user.service';
+import { Registered } from '@app/models/registered';
 
 @Component({ templateUrl: './login.component.html',
              styleUrls: ['./login.component.css'] })
@@ -18,10 +20,11 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService
-    ) { 
+        private authenticationService: AuthenticationService,
+        private userService: UserService
+    ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
+        if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }
@@ -34,6 +37,13 @@ export class LoginComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+
+        // check to see if any user has been registered
+        this.userService.isRegistered().subscribe(registered => {
+            if (! registered.status) {
+                this.router.navigateByUrl('/register');
+            }
+        });
     }
 
     // convenience getter for easy access to form fields
