@@ -14,6 +14,8 @@ export class PostsComponent implements OnInit {
 
   deletePost(id: number) {
     this.service.deletePost(id);
+    alert("Post deleted!")
+    location.reload();
   }
 
   ngOnInit() {
