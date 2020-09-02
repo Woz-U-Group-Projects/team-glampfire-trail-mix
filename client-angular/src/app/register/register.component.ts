@@ -11,30 +11,24 @@ import { User } from '@app/models/user';
 export class RegisterComponent implements OnInit {
 
   user: User;
-  validUsername: boolean;
-  validPassword: boolean;
 
   constructor(private router: Router, private service: UserService) { }
 
   ngOnInit() {
     this.user = new User();
-    this.validUsername = true;
-    this.validPassword = true;
+
+    // check to see if any user has been registered
+    this.service.isRegistered().subscribe(registered => {
+      if (registered.status) {
+        this.router.navigateByUrl('/login?returnUrl=%2Fadmin');
+      }
+    });
+
   }
 
   onSubmit() {
-    if (this.user.username === undefined || this.user.username === '') {
-      this.validUsername = false;
-      return;
-    }
-
-    if (this.user.password === undefined || this.user.password === '') {
-      this.validPassword = false;
-      return;
-    }
-
     this.service.createUser(this.user).subscribe(user => {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login?returnUrl=%2Fadmin');
     });
   }
 
