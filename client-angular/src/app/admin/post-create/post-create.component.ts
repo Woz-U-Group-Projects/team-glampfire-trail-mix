@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../post.service';
 import { Post } from '../../models/post';
 
-import { QuillModule } from "ngx-quill";
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -15,7 +14,7 @@ export class PostCreateComponent implements OnInit {
   post = new Post();
   editorForm = this.fb.group({
     title: ['', [Validators.required]]
-  })
+  });
   title = new FormControl('');
   content = new FormControl('');
 
@@ -23,8 +22,8 @@ export class PostCreateComponent implements OnInit {
 
   ngOnInit() {
     this.editorForm = new FormGroup(
-      { 'editor': new FormControl(null),
-      'title': new FormControl(null) }
+      { editor: new FormControl(null),
+      title: new FormControl(null) }
     );
     // this.route.paramMap.subscribe(params => {
     //   this.service.readPost(params.get('id')).subscribe(p => {
@@ -40,9 +39,9 @@ export class PostCreateComponent implements OnInit {
         // Pull the title and content from the form, and set as the master Post
         this.post.title = this.title.value;
         this.post.content = this.content.value;
-    
+
         // Send the post to the service
-        alert(JSON.stringify(this.post))
+        // alert(JSON.stringify(this.post))
         this.service.createPost(this.post);
 
 
