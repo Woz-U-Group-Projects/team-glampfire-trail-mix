@@ -15,6 +15,7 @@ export class ContactComponent implements OnInit {
   createMessage() {
     this.messageService.createMessage(this.newMessage).subscribe(result => {
       this.newMessage = new Message();
+      alert('Message sent.');
     });
   }
 

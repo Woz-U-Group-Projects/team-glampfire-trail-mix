@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SettingsService } from '@app/services/settings.service';
 import { Settings } from '@app/models/settings';
 
@@ -10,13 +11,12 @@ import { Settings } from '@app/models/settings';
 export class SettingsComponent implements OnInit {
 
   settings: Settings;
-  submitted = false;
 
-  constructor(private service: SettingsService) { }
+  constructor(private service: SettingsService, private router: Router) { }
 
   getSettings() {
-    this.service.getSettings().subscribe(setttings => {
-      this.settings = setttings;
+    this.service.getSettings().subscribe(settings => {
+      this.settings = settings;
     });
   }
 
@@ -28,7 +28,8 @@ export class SettingsComponent implements OnInit {
   onSubmit() {
     this.service.putSettings(this.settings).subscribe(settings => {
       this.settings = settings;
-      this.submitted = true;
+      alert('The settings are saved.');
+      this.router.navigateByUrl('/admin').then();
     });
   }
 
