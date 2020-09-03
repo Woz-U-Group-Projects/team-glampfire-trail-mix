@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostService } from '../../services/post.service';
-import { Post } from '../../models/post';
+import { PostService } from '@app/services/post.service';
+import { Post } from '@app/models/post';
 
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -41,10 +41,10 @@ export class PostCreateComponent implements OnInit {
         this.post.content = this.content.value;
 
         // Send the post to the service
-        alert('Post saved successfully. ')
+        alert('Post saved successfully.');
         this.service.createPost(this.post);
 
-        this.router.navigate(['/admin/posts'])
+        this.router.navigate(['/admin/posts']).then();
 
 
 
