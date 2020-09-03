@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '@app/settings.service';
-import { LazyLoadService } from '@app/lazy-load.service';
+import { SettingsService } from '@app/services/settings.service';
+import { LazyLoadService } from '@app/services/lazy-load.service';
 import { Settings } from '@app/models/settings';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '@app/_services';
+import { AuthenticationService } from '@app/services';
 import { User } from '@app/models/user';
 
 @Component({

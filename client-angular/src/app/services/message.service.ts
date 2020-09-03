@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from './models/message';
+import { Message } from '../models/message';
 import { Observable } from 'rxjs';
-import { SettingsService } from './settings.service';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 
-  apiUrl = this.settings.BASE_URL + 'messages';
+  apiUrl = environment.apiUrl + '/messages';
 
-  constructor(private http: HttpClient, private settings: SettingsService) { }
+  constructor(private http: HttpClient) { }
   createMessage(message: Message): Observable<Message> {
     return this.http.post<Message>(this.apiUrl, message);
   }
