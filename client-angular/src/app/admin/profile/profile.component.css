@@ -1,0 +1,11 @@
+label {
+    font-weight: bold;
+}
+
+img#profile-pic {
+    width: 32px;
+}
+
+textarea {
+    height: 10rem;
+}

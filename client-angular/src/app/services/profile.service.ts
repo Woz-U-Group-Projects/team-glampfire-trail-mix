@@ -15,4 +15,8 @@ export class ProfileService {
   readProfile(): Observable<Profile> {
     return this.http.get<Profile>(this.apiUrl);
   }
+
+  updateProfile(profile: Profile): Observable<Profile> {
+    return this.http.put<Profile>(this.apiUrl, profile);
+  }
 }
