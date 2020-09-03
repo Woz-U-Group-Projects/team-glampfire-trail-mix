@@ -1,13 +1,28 @@
-<h1>Contact Me </h1>
-<p>Please fill out the form below and we will contact you.</p>
-<form>
-    <label for="name">Name</label><br>
-    <input type="text" id="name" [(ngModel)]="newMessage.name" name="name"><br>
-    <label for="email">Email</label><br>
-    <input type="text" id="email" [(ngModel)]="newMessage.email" name="email"><br>
-    <label for="subject">Subject</label><br>
-    <input type="text" id="subject" [(ngModel)]="newMessage.subject" name="subject"><br>
-    <label for="message">Message</label><br>
-    <input type="text" id="message" [(ngModel)]="newMessage.message" name="message"><br>
-    <button type="submit" (click)="createMessage()">Submit</button>
+<form class="w3-container w3-card-4 w3-theme-l5 w3-text-theme w3-margin">
+    <h1 class="w3-center">Contact Me </h1>
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><label for="name"><i class="w3-xxlarge fa fa-user"></i></label></div>
+        <div class="w3-rest">
+            <input type="text" id="name" [(ngModel)]="newMessage.name" name="name" class="w3-input w3-border" placeholder="Full Name">
+        </div>
+    </div>
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><label for="email"><i class="w3-xxlarge fa fa-envelope-o"></i></label></div>
+        <div class="w3-rest">
+            <input type="text" id="email" [(ngModel)]="newMessage.email" name="email" class="w3-input w3-border" placeholder="Email">
+        </div>
+    </div>
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><label for="subject"><i class="w3-xxlarge fa fa-pencil"></i></label></div>
+        <div class="w3-rest">
+            <input type="text" id="subject" [(ngModel)]="newMessage.subject" name="subject" class="w3-input w3-border" placeholder="Subject">
+        </div>
+    </div>
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><label for="message"><i class="w3-xxlarge fa fa-pencil-square-o"></i></label></div>
+        <div class="w3-rest">
+            <input type="text" id="message" [(ngModel)]="newMessage.message" name="message" class="w3-input w3-border" placeholder="Message">
+        </div>
+    </div>
+    <button type="submit" (click)="createMessage()" class="w3-btn w3-block w3-section w3-blue w3-padding">Submit</button>
 </form>
