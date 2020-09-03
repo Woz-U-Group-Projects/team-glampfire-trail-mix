@@ -64,7 +64,6 @@ export class AppComponent implements OnInit {
       docHead.removeChild(oldTheme);
     }
     docHead.appendChild(style);
-    alert('theme changed');
   }
 
   getSettings() {
