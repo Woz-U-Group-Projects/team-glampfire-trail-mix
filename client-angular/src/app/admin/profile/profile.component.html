@@ -1,3 +1,65 @@
 <div class="w3-container">
-    <p><strong>Under construction! </strong>This page will be where you can view messages sent to you. </p>
+    <div class="w3-card-4">
+        <h1 class="w3-panel w3-theme">Profile</h1>
+        <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #profileForm="ngForm">
+
+            <div class="w3-row">
+                <div class="w3-col w3-half">
+                    <div class="w3-padding">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" class="w3-input" required name="firstName"
+                               [(ngModel)]="profile.firstName"
+                               #firstName="ngModel">
+                    </div>
+                    <div [hidden]="firstName.valid || firstName.pristine" class="w3-text-red w3-padding">
+                        First name is required.
+                    </div>
+                </div>
+                <div class="w3-col w3-half">
+                    <div class="w3-padding">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" class="w3-input" required name="lastName"
+                               [(ngModel)]="profile.lastName"
+                               #lastName="ngModel">
+                    </div>
+                    <div [hidden]="lastName.valid || lastName.pristine" class="w3-text-red w3-padding">
+                        Last name is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-padding">
+                <img src="{{ profile.pic }}" alt="{{ profile.firstName }} {{ profile.lastName }}" id="profile-pic">
+                <label for="pic"> Profile Picture URL</label>
+                <input type="text" id="pic" class="w3-input" name="pic"
+                       [(ngModel)]="profile.pic">
+            </div>
+
+            <div class="w3-padding">
+                <label for="age">Age</label>
+                <input type="text" id="age" class="w3-input" name="age"
+                       [(ngModel)]="profile.age">
+            </div>
+
+            <div class="w3-padding">
+                <label for="languages">Languages <span class="comma-delimited">(comma delimited)</span></label>
+                <input type="text" id="languages" class="w3-input" name="languages"
+                       [(ngModel)]="languages">
+            </div>
+
+            <div class="w3-padding">
+                <label for="bio">Biography</label>
+                <textarea id="bio" name="bio" class="w3-input"
+                          [(ngModel)]="profile.bio"></textarea>
+            </div>
+
+            <div class="w3-padding">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="w3-input" name="email"
+                       [(ngModel)]="profile.email">
+            </div>
+
+            <button type="submit" class="w3-btn w3-theme-l4" [disabled]="!profileForm.form.valid">Save</button>
+        </form>
+    </div>
 </div>
