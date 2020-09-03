@@ -43,6 +43,7 @@ public class ProfileInformationController {
         foundProfileInformation.setAge(profileInformation.getAge());
         foundProfileInformation.setLanguages(profileInformation.getLanguages());
         foundProfileInformation.setBio(profileInformation.getBio());
+        foundProfileInformation.setEmail(profileInformation.getEmail());
         profileInformationRepository.save(foundProfileInformation);
         return foundProfileInformation;
     }
