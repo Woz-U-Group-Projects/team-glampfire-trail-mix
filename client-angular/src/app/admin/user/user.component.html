@@ -1,32 +1,26 @@
-<div class="w3-container">
-    <div class="w3-card-4">
-        <div class="w3-panel w3-theme">
-            <h1>User</h1>
-        </div>
+<h1>User</h1>
 
-        <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #userForm="ngForm">
-            <p>
-                <label for="username">Username</label>
-                <input type="text" class="w3-input" id="username" required [(ngModel)]="user.username" name="username"
-                       #username="ngModel">
-            </p>
-            <p [hidden]="username.valid || username.pristine" class="w3-panel w3-red">
-                Username is required
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input type="password" class="w3-input" id="password" required minlength="8" [(ngModel)]="user.password"
-                       name="password" #password="ngModel">
-            </p>
-            <div [hidden]="password.valid || password.pristine" class="w3-panel w3-red">
-                <div *ngIf="password.errors?.required">
-                    Password is required
-                </div>
-                <div *ngIf="password.errors?.minlength">
-                    Eight characters or more
-                </div>
-            </div>
-            <button type="submit" [disabled]="!userForm.form.valid" class="w3-btn w3-theme-l4">Save</button>
-        </form>
+<form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <p>
+        <label for="username">Username</label>
+        <input type="text" class="w3-input" id="username" required [(ngModel)]="user.username" name="username"
+            #username="ngModel">
+    </p>
+    <p [hidden]="username.valid || username.pristine" class="w3-panel w3-red">
+        Username is required
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input type="password" class="w3-input" id="password" required minlength="8" [(ngModel)]="user.password"
+            name="password" #password="ngModel">
+    </p>
+    <div [hidden]="password.valid || password.pristine" class="w3-panel w3-red">
+        <div *ngIf="password.errors?.required">
+            Password is required
+        </div>
+        <div *ngIf="password.errors?.minlength">
+            Eight characters or more
+        </div>
     </div>
-</div>
+    <button type="submit" [disabled]="!userForm.form.valid" class="w3-btn w3-theme-l4">Save</button>
+</form>
