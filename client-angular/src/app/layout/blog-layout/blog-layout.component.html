@@ -3,9 +3,10 @@
     <p>{{ settings.blogSubTitle }}</p>
 </header>
 <nav class="w3-bar w3-theme-d3">
-        <a routerLink="" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Home</a>
-        <a routerLink="/about" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">About</a>
-        <a routerLink="/contact" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Contact</a>
+        <a routerLink="" routerLinkActive="w3-theme-l3" [routerLinkActiveOptions]="{exact:
+true}" class="w3-bar-item w3-button w3-mobile">Home</a>
+        <a routerLink="/about" routerLinkActive="w3-theme-l3" class="w3-bar-item w3-button w3-mobile">About</a>
+        <a routerLink="/contact" routerLinkActive="w3-theme-l3" class="w3-bar-item w3-button w3-mobile">Contact</a>
         <a routerLink="/admin" class="w3-bar-item w3-button w3-mobile w3-right">Admin</a>
 </nav>
 

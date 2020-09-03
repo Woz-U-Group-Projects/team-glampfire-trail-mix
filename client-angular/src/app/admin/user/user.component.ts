@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 import { UserService } from '@app/services/user.service';
 import { User } from '@app/models/user';
 
@@ -10,9 +11,8 @@ import { User } from '@app/models/user';
 export class UserComponent implements OnInit {
 
   user: User;
-  submitted = false;
 
-  constructor(private service: UserService) { }
+  constructor(private service: UserService, private router: Router) { }
 
   getUser() {
     this.service.readUser().subscribe(user => { this.user = user; });
@@ -25,7 +25,8 @@ export class UserComponent implements OnInit {
   onSubmit() {
     this.service.updateUser(this.user).subscribe(user => {
       this.user = user;
-      this.submitted = true;
+      alert('Login information is saved.');
+      this.router.navigateByUrl('/admin').then();
     });
   }
 

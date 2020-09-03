@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         // check to see if any user has been registered
         this.userService.isRegistered().subscribe(registered => {
             if (! registered.status) {
-                this.router.navigateByUrl('/register');
+                this.router.navigateByUrl('/register').then();
             }
         });
     }
