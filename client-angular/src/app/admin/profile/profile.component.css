@@ -9,3 +9,9 @@ img#profile-pic {
 textarea {
     height: 10rem;
 }
+
+.comma-delimited {
+    font-size: small;
+    font-style: italic;
+    font-weight: normal;
+}
