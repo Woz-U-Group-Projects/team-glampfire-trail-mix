@@ -10,7 +10,7 @@ import { Post } from '../models/post';
 })
 export class BlogDetailComponent implements OnInit {
 
-  post: Post;
+  post: Post = new Post();
 
   constructor(private service: PostService, private route: ActivatedRoute) { }
 

@@ -5,3 +5,20 @@
     margin-right: auto;
     max-width: 75%;
 }
+
+:host ::ng-deep blockquote {
+    font: 14px/22px normal helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+}
+
+:host ::ng-deep .ql-indent-1 {
+    padding-left: 3rem;
+}
+
+:host ::ng-deep blockquote + .ql-indent-1 {
+    padding-left: 6rem;
+}
