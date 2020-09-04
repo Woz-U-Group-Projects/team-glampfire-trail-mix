@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '@app/services/post.service';
 import { Post } from '@app/models/post';
 
@@ -22,7 +22,7 @@ export class PostEditComponent implements OnInit {
   title = new FormControl('');
   content = new FormControl('');
 
-  constructor(private service: PostService, private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private service: PostService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
 
 
   ngOnInit() {
@@ -49,8 +49,10 @@ export class PostEditComponent implements OnInit {
     this.post.content = this.content.value;
 
     // Send the post to the service
+    alert('Post saved successfully.');
     this.service.updatePost(this.post);
 
+    this.router.navigate(['/admin/posts']).then();
   }
 
 }
