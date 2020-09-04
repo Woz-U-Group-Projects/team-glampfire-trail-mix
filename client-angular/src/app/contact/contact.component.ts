@@ -15,11 +15,13 @@ export class ContactComponent implements OnInit {
   createMessage() {
     this.messageService.createMessage(this.newMessage).subscribe(result => {
       this.newMessage = new Message();
+      this.newMessage.read = false;
       alert('Message sent.');
     });
   }
 
   ngOnInit() {
+    this.newMessage.read = false;
   }
 
 }
