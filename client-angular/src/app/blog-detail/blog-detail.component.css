@@ -1,0 +1,7 @@
+/* Center first main image */
+:host ::ng-deep div p:first-child img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+}
