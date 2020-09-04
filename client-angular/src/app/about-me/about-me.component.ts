@@ -9,7 +9,7 @@ import { Profile } from '../models/profile';
 })
 export class AboutMeComponent implements OnInit {
 
-  profile: Profile;
+  profile: Profile = new Profile();
 
   constructor(private service: ProfileService) { }
 

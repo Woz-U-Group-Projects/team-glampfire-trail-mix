@@ -10,7 +10,7 @@ import { User } from '@app/models/user';
 })
 export class UserComponent implements OnInit {
 
-  user: User;
+  user: User = new User();
 
   constructor(private service: UserService, private router: Router) { }
 

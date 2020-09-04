@@ -11,7 +11,7 @@ import { AppComponent } from '@app/app.component';
 })
 export class SettingsComponent implements OnInit {
 
-  settings: Settings;
+  settings: Settings = new Settings();
 
   constructor(private service: SettingsService, private router: Router, private app: AppComponent) { }
 

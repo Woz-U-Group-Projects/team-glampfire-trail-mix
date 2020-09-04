@@ -9,7 +9,7 @@ import { Settings } from '../models/settings';
 })
 export class SocialMediaComponent implements OnInit {
 
-  settings: Settings;
+  settings: Settings = new Settings();
 
   constructor(private settingsService: SettingsService) { }
 

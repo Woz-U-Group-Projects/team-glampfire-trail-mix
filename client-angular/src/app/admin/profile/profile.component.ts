@@ -10,8 +10,8 @@ import { Profile } from '@app/models/profile';
 })
 export class ProfileComponent implements OnInit {
 
-  profile: Profile;
-  languages: string;
+  profile: Profile = new Profile();
+  languages = '';
 
   constructor(private router: Router, private service: ProfileService) { }
 

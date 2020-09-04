@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../../services/post.service';
-import { Post } from '../../models/post';
+import { PostService } from '@app/services/post.service';
+import { Post } from '@app/models/post';
 
 @Component({
   selector: 'app-posts',
@@ -14,7 +14,7 @@ export class PostsComponent implements OnInit {
 
   deletePost(id: number) {
     this.service.deletePost(id);
-    alert("Post deleted!")
+    alert('Post deleted!');
     location.reload();
   }
 
