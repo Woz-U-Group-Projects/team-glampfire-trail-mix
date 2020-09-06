@@ -11,7 +11,7 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { SafeHtmlPipe } from './helpers/safe-html.pipe';
 import { BlogLayoutComponent } from './layout/blog-layout/blog-layout.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
-import { LoginComponent } from './login/login.component'; 
+import { LoginComponent } from './login/login.component';
 import { SettingsComponent } from './admin/settings/settings.component';
 import { PostsComponent } from './admin/posts/posts.component';
 import { ProfileComponent } from './admin/profile/profile.component';
@@ -19,7 +19,7 @@ import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
-import { QuillModule } from 'ngx-quill';
+// import { QuillModule } from 'ngx-quill';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from '@app/helpers/basic-auth.interceptors';
@@ -37,8 +37,9 @@ import { RegisterComponent } from './register/register.component';
                  LogoutComponent,
                  UserComponent,
                  RegisterComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
-  providers: [
+  // imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+    providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
