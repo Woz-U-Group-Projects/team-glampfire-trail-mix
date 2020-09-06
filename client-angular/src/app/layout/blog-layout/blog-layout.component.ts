@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../../settings.service';
+import { SettingsService } from '../../services/settings.service';
 import { Settings } from '../../models/settings';
 
 @Component({
@@ -11,8 +11,8 @@ export class BlogLayoutComponent implements OnInit {
 
   constructor(private settingsService: SettingsService) { }
 
-  settings: Settings;
-  m: string;
+  settings: Settings = new Settings();
+  m = 'm12';
 
   getSettings() {
     this.settingsService.getSettings().subscribe(setttings => {
@@ -22,8 +22,6 @@ export class BlogLayoutComponent implements OnInit {
         this.m = 'm4';
       } else if (this.settings.license || this.settings.poweredBy) {
         this.m = 'm6';
-      } else {
-        this.m = 'm12';
       }
 
     });

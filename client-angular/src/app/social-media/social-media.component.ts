@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../settings.service';
+import { SettingsService } from '../services/settings.service';
 import { Settings } from '../models/settings';
 
 @Component({
@@ -9,7 +9,7 @@ import { Settings } from '../models/settings';
 })
 export class SocialMediaComponent implements OnInit {
 
-  settings: Settings;
+  settings: Settings = new Settings();
 
   constructor(private settingsService: SettingsService) { }
 

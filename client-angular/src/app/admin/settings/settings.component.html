@@ -57,7 +57,7 @@
 
             <h2>Metadata</h2>
             <p>
-                <label for="theme">W3.CSS Theme URL</label>
+                <label for="theme">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label>
                 <input type="text" class="w3-input" id="theme" required [(ngModel)]="settings.theme" name="theme"
                     #theme="ngModel">
             </p>
@@ -110,8 +110,9 @@
                 <input type="text" class="w3-input" id="github" [(ngModel)]="settings.github" name="github"
                     #github="ngModel">
             </p>
-            <p [hidden]="!submitted" class="w3-panel w3-green">All of the settings are saved!</p>
-            <button type="submit" [disabled]="!settingsForm.form.valid">Save</button>
+            
+            <button type="submit" [disabled]="!settingsForm.form.valid" class="w3-btn w3-theme-l4">Save</button>
+            <admin-user></admin-user>
         </form>
     </div>
 </div>

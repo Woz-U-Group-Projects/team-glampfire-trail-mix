@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '@app/user.service';
+import { UserService } from '@app/services/user.service';
 import { User } from '@app/models/user';
 
 @Component({
@@ -11,6 +11,7 @@ import { User } from '@app/models/user';
 export class RegisterComponent implements OnInit {
 
   user: User;
+  returnUrl = '/login?returnUrl=%2Fadmin';
 
   constructor(private router: Router, private service: UserService) { }
 
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
     // check to see if any user has been registered
     this.service.isRegistered().subscribe(registered => {
       if (registered.status) {
-        this.router.navigateByUrl('/login?returnUrl=%2Fadmin');
+        this.router.navigateByUrl(this.returnUrl).then();
       }
     });
 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.service.createUser(this.user).subscribe(user => {
-      this.router.navigateByUrl('/login?returnUrl=%2Fadmin');
+      this.router.navigateByUrl("/admin/profile").then();
     });
   }
 

@@ -1,11 +1,12 @@
-<header class="w3-panel w3-theme">
+<header class="w3-panel w3-theme w3-center">
     <h1>{{ settings.blogTitle }}</h1>
     <p>{{ settings.blogSubTitle }}</p>
 </header>
 <nav class="w3-bar w3-theme-d3">
-        <a routerLink="" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Home</a>
-        <a routerLink="/about" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">About</a>
-        <a routerLink="/contact" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Contact</a>
+        <a routerLink="" routerLinkActive="w3-theme-l3" [routerLinkActiveOptions]="{exact:
+true}" class="w3-bar-item w3-button w3-mobile">Home</a>
+        <a routerLink="/about" routerLinkActive="w3-theme-l3" class="w3-bar-item w3-button w3-mobile">About</a>
+        <a routerLink="/contact" routerLinkActive="w3-theme-l3" class="w3-bar-item w3-button w3-mobile">Contact</a>
         <a routerLink="/admin" class="w3-bar-item w3-button w3-mobile w3-right">Admin</a>
 </nav>
 
@@ -13,7 +14,7 @@
     <router-outlet></router-outlet>
 </div>
 
-<footer class="w3-panel w3-theme-l2 w3-row">
+<footer class="w3-panel w3-theme-l2 w3-row w3-center">
     <div class="w3-col {{ m }}">{{ settings.copyright }}</div>
     <div class="w3-col {{ m }}" *ngIf="settings.license"><a href="{{ settings.licenseUrl }}" class="w3-text-black">{{ settings.licenseTitle }}</a></div>
     <div class="w3-col {{ m }}" *ngIf="settings.poweredBy">Powered by What's the Scoop?</div>

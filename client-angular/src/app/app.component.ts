@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '@app/settings.service';
-import { LazyLoadService } from '@app/lazy-load.service';
+import { SettingsService } from '@app/services/settings.service';
 import { Settings } from '@app/models/settings';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '@app/_services';
+import { AuthenticationService } from '@app/services';
 import { User } from '@app/models/user';
 
 @Component({
@@ -18,7 +17,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private settingsService: SettingsService,
-    private lazyload: LazyLoadService,
     private router: Router,
     private authenticationService: AuthenticationService) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
@@ -55,10 +53,23 @@ export class AppComponent implements OnInit {
     docHead.appendChild(link);
   }
 
+  changeTheme(url: string) {
+    const docHead = document.head || document.getElementsByTagName('head')[0];
+    const style = document.createElement('link');
+    const oldTheme = document.getElementById('dynamic-css-theme');
+    style.id = 'dynamic-css-theme';
+    style.href = url;
+    style.rel = 'stylesheet';
+    if (oldTheme) {
+      docHead.removeChild(oldTheme);
+    }
+    docHead.appendChild(style);
+  }
+
   getSettings() {
-    this.settingsService.getSettings().subscribe(setttings => {
-      this.settings = setttings;
-      this.lazyload.loadExternalStyles(this.settings.theme);
+    this.settingsService.getSettings().subscribe(settings => {
+      this.settings = settings;
+      this.changeTheme(this.settings.theme);
       this.changeTitle(this.settings.headTitle);
       this.changeFavicon(this.settings.favicon);
     });

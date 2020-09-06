@@ -13,7 +13,7 @@ import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
-import { AuthGuard } from '@app/_helpers/auth.guard';
+import { AuthGuard } from '@app/helpers/auth.guard';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
 import { UserComponent } from '@app/admin/user/user.component';
 import { RegisterComponent } from '@app/register/register.component';

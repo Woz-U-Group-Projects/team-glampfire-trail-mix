@@ -1,53 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PostService } from '../../post.service';
-import { Post } from '../../models/post';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PostService} from '@app/services/post.service';
+import {Post} from '@app/models/post';
+import {QuillService} from '@app/services/quill.service';
 
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import Quill from 'quill';
+import * as QuillBlotFormatter from 'quill-blot-formatter';
+Quill.register('models/blotFormatter', QuillBlotFormatter.default);
 
 @Component({
-  selector: 'app-post-create',
-  templateUrl: './post-create.component.html',
-  styleUrls: ['./post-create.component.css']
+    selector: 'app-post-create',
+    templateUrl: './post-create.component.html',
+    styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent implements OnInit {
-  post = new Post();
-  editorForm = this.fb.group({
-    title: ['', [Validators.required]]
-  });
-  title = new FormControl('');
-  content = new FormControl('');
+    post = new Post();
+    quill: Quill;
 
-  constructor(private service: PostService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
+    constructor(private service: PostService, private route: ActivatedRoute, private router: Router, private quillService: QuillService) {
+    }
 
-  ngOnInit() {
-    this.editorForm = new FormGroup(
-      { editor: new FormControl(null),
-      title: new FormControl(null) }
-    );
-    // this.route.paramMap.subscribe(params => {
-    //   this.service.readPost(params.get('id')).subscribe(p => {
-    //     this.title.patchValue(p.title);
-    //     this.content.patchValue(p.content);
-    //     this.post = p;
-    //   });
-    // });
+    ngOnInit() {
+        this.quill = new Quill(document.getElementById('post-editor'), this.quillService.getOptions());
+    }
 
-  }
-
-  onSubmit() {
-        // Pull the title and content from the form, and set as the master Post
-        this.post.title = this.title.value;
-        this.post.content = this.content.value;
+    onSubmit() {
+        this.post.content = document.getElementsByClassName('ql-editor')[0].innerHTML;
 
         // Send the post to the service
-        alert('Post saved successfully. ')
+        alert('Post saved successfully.');
         this.service.createPost(this.post);
 
-        this.router.navigate(['/admin/posts'])
-
-
-
-  }
+        this.router.navigate(['/admin/posts']).then();
+    }
 
 }

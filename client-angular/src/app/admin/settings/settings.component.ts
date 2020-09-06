@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '@app/settings.service';
+import { Router } from '@angular/router';
+import { SettingsService } from '@app/services/settings.service';
 import { Settings } from '@app/models/settings';
+import { AppComponent } from '@app/app.component';
 
 @Component({
   selector: 'app-settings',
@@ -9,14 +11,13 @@ import { Settings } from '@app/models/settings';
 })
 export class SettingsComponent implements OnInit {
 
-  settings: Settings;
-  submitted = false;
+  settings: Settings = new Settings();
 
-  constructor(private service: SettingsService) { }
+  constructor(private service: SettingsService, private router: Router, private app: AppComponent) { }
 
   getSettings() {
-    this.service.getSettings().subscribe(setttings => {
-      this.settings = setttings;
+    this.service.getSettings().subscribe(settings => {
+      this.settings = settings;
     });
   }
 
@@ -28,7 +29,11 @@ export class SettingsComponent implements OnInit {
   onSubmit() {
     this.service.putSettings(this.settings).subscribe(settings => {
       this.settings = settings;
-      this.submitted = true;
+      alert('The settings are saved.');
+      this.app.changeTheme(this.settings.theme);
+      this.app.changeTitle(this.settings.headTitle);
+      this.app.changeFavicon(this.settings.favicon);
+      this.router.navigateByUrl('/admin').then();
     });
   }
 

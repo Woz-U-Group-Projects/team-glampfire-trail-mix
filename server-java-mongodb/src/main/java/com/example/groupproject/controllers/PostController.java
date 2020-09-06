@@ -28,17 +28,19 @@ public class PostController {
 
     @PostMapping
     public Post createPost(@RequestBody Post post) {
+        String slug = post.getTitle().replaceAll("/[^A-Za-z0-9 ]/", "").replaceAll(" ", "-").toLowerCase();
+        post.setId(slug);
         post.setCreateDate(new Date());
         return postRepository.save(post);
     }
 
     @GetMapping()
-    public List<Post> getPosts() {
+    public List<Post> readPosts() {
         return postRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Post getPost(@PathVariable String id) {
+    public Post readPost(@PathVariable String id) {
         return postRepository.findById(id).orElse(null);
     }
 

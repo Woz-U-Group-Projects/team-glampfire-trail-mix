@@ -5,15 +5,15 @@
       <h5>Post ID: {{ post.id }}</h5>
     </div>
     <article id="post-content" class="w3-container">
-      <form class="w3-container w3-padding" [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+      <form class="w3-container w3-padding" (ngSubmit)="onSubmit()">
         <p>
           <label for="title">Title: </label>
-          <input type="text" class="w3-input" [formControl]="title">
+          <input type="text" id="title" name="title" class="w3-input" [(ngModel)]="post.title">
         </p>
         <label for="editor">Content: </label>
         <div id="editor" class="w3-input">
-          
-          <quill-editor id="post-editor" [formControl]="content"></quill-editor>
+          <div id="toolbar"></div>
+            <div id="post-editor"></div>
         </div>
         <button type="submit">Save</button>
       </form>

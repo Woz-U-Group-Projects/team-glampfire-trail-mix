@@ -11,6 +11,7 @@ public class Message {
     private String email;
     private String subject;
     private String message;
+    private boolean read;
 
     public String getId() {
         return id;
@@ -50,5 +51,13 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
     }
 }

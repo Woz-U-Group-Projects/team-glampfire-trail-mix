@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MessageService} from '../message.service';
+import {MessageService} from '../services/message.service';
 import {Message} from '../models/message'
 
 @Component({
@@ -15,10 +15,13 @@ export class ContactComponent implements OnInit {
   createMessage() {
     this.messageService.createMessage(this.newMessage).subscribe(result => {
       this.newMessage = new Message();
+      this.newMessage.read = false;
+      alert('Message sent.');
     });
   }
 
   ngOnInit() {
+    this.newMessage.read = false;
   }
 
 }

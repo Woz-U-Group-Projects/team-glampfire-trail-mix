@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService } from '@app/_services';
-import { UserService } from '@app/user.service';
+import { AuthenticationService } from '@app/services';
+import { UserService } from '@app/services/user.service';
 import { Registered } from '@app/models/registered';
 
 @Component({ templateUrl: './login.component.html',
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         // check to see if any user has been registered
         this.userService.isRegistered().subscribe(registered => {
             if (! registered.status) {
-                this.router.navigateByUrl('/register');
+                this.router.navigateByUrl('/register').then();
             }
         });
     }

@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Settings } from './models/settings';
+import { Settings } from '../models/settings';
 import { Observable } from 'rxjs';
+import { environment } from '@environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
-  // BASE_URL = 'http://52.156.70.167:8080/glampfire/';
-  BASE_URL = 'http://52.156.70.167:8080/glampfiredev/';
-  // BASE_URL = 'http://localhost:8080/';
-  apiUrl = this.BASE_URL + 'settings';
+  apiUrl = environment.apiUrl + '/settings';
 
   constructor(private http: HttpClient) { }
 

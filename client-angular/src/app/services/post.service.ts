@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Post } from './models/post';
+import { Post } from '../models/post';
 import { Observable, Subscriber } from 'rxjs';
-import { SettingsService } from './settings.service';
+import { environment } from '@environments/environment';
 
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -11,20 +11,20 @@ const headers = new HttpHeaders().set('Content-Type', 'application/json');
   providedIn: 'root'
 })
 export class PostService {
-  api = this.settings.BASE_URL + 'posts';
+  apiUrl = environment.apiUrl + '/posts';
 
-  constructor(private http: HttpClient, private settings: SettingsService) { }
+  constructor(private http: HttpClient) { }
 
   readPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.api);
+    return this.http.get<Post[]>(this.apiUrl);
   }
 
   readPost(postId: string): Observable<Post> {
-    return this.http.get<Post>(`${this.api}/${postId}`);
+    return this.http.get<Post>(`${this.apiUrl}/${postId}`);
   }
 
   deletePost(postId: number): Observable<Post> {
-    this.http.delete(`${this.api}/${postId}`).subscribe(data => {
+    this.http.delete(`${this.apiUrl}/${postId}`).subscribe(data => {
       console.log('Removed post');
     });
 
@@ -34,7 +34,7 @@ export class PostService {
   updatePost(post: Post): void {
     console.log('Updating post ' + post.id)
     // Update the post on the backend
-    this.http.put<Post>(`${this.api}/${post.id}`, post, { headers }).subscribe(
+    this.http.put<Post>(`${this.apiUrl}/${post.id}`, post, { headers }).subscribe(
       val => {
         console.log('Post ' + post.id + ' updated\n',
           val);
@@ -48,7 +48,7 @@ export class PostService {
 
   createPost(post: Post): void {
     console.log('Creating post ' + post.id);
-    this.http.post<Post>(`${this.api}`, post, { headers }).subscribe(
+    this.http.post<Post>(`${this.apiUrl}`, post, { headers }).subscribe(
       val => {
         console.log('Post ' + post.id + ' updated\n',
           val);

@@ -3,4 +3,10 @@ export class Post {
   title: string;
   content: string;
   createDate: Date;
+
+  constructor() {
+    this.title = '';
+    this.content = '';
+  }
+
 }
