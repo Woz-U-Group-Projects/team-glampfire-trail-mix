@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "katex": "^0.12.0",
     "quill": "^1.3.7",
+    "quill-blot-formatter": "^1.0.5",
     "rxjs": "^6.6.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

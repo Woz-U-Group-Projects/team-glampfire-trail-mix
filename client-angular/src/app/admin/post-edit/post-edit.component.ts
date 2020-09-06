@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { QuillService } from '@app/services/quill.service';
 import { PostService } from '@app/services/post.service';
 import { Post } from '@app/models/post';
 
-import Quill from 'Quill';
+import Quill from 'quill';
+import * as QuillBlotFormatter from 'quill-blot-formatter';
+Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 
 
 @Component({
@@ -24,7 +27,7 @@ export class PostEditComponent implements OnInit {
   // title = new FormControl('');
   // content = new FormControl('');
 
-  constructor(private service: PostService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private service: PostService, private route: ActivatedRoute, private router: Router, private quillService: QuillService) { }
 
 
   ngOnInit() {
@@ -38,15 +41,9 @@ export class PostEditComponent implements OnInit {
       this.service.readPost(params.get('id')).subscribe(p => {
         const container = document.getElementById('post-editor');
 
-        const options = {
-          theme: 'snow'
-        };
-
         container.innerHTML = p.content;
-        this.quill = new Quill(container, options);
+        this.quill = new Quill(container, this.quillService.getOptions());
 
-        // this.title.patchValue(p.title);
-        // this.content.patchValue(p.content);
         this.post = p;
       });
     });
