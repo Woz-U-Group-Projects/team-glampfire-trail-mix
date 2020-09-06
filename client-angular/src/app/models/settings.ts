@@ -14,6 +14,7 @@ export class Settings {
     youtube: string;
     linkedin: string;
     github: string;
+    reddit: string;
     favicon: string;
     headTitle: string;
 }
