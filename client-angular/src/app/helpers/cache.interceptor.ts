@@ -1,3 +1,6 @@
+// From "Client-Side Caching In Angular 8 Using HTTP Interceptor" by Sarathlal Saseendran
+// https://www.c-sharpcorner.com/article/client-side-caching-in-angular-8-using-http-interceptor/
+
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
