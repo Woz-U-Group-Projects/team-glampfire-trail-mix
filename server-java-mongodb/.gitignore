@@ -32,3 +32,5 @@ build/
 
 ### Sprint Boot ###
 /bin/
+
+src/main/resources/application.properties

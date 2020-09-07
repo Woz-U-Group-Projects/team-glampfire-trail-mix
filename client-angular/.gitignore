@@ -46,3 +46,5 @@ testem.log
 Thumbs.db
 
 .editorconfig
+src/environments/environment.prod.ts
+src/environments/environment.ts
