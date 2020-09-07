@@ -16,7 +16,7 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" [(ngModel)]="user.password" class="w3-input w3-border"
                 required #password="ngModel">
-            <div [hidden]="password.valid || password.pristine || validPassword" class="w3-panel w3-red">
+            <div [hidden]="password.valid || password.pristine" class="w3-panel w3-red">
                 <div>Password is required</div>
             </div>
         </div>
