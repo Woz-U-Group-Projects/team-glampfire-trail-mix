@@ -19,7 +19,6 @@ import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-
 import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
-// import { QuillModule } from 'ngx-quill';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from '@app/helpers/basic-auth.interceptors';
@@ -28,6 +27,7 @@ import { SetupwizardComponent } from './setupwizard/setupwizard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserComponent } from './admin/user/user.component';
 import { RegisterComponent } from './register/register.component';
+import { CacheInterceptor} from '@app/helpers/cache.interceptor';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
@@ -37,11 +37,11 @@ import { RegisterComponent } from './register/register.component';
                  LogoutComponent,
                  UserComponent,
                  RegisterComponent],
-  // imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QuillModule.forRoot()],
     imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
