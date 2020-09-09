@@ -1,5 +1,6 @@
 package com.example.groupproject.controllers;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +37,26 @@ public class PostController {
 
     @GetMapping()
     public List<Post> readPosts() {
-        return postRepository.findAll();
+        List<Post> posts = postRepository.findAll();
+
+        for(Post post : posts) {
+            post.setContent(getSnippet(post));
+        }
+
+        return posts;
+    }
+
+    private String getSnippet(Post post) {
+        String text = post.getContent().replaceAll("(?s)<[^>]*>(\\s*<[^>]*>)*", " ");
+        String[] words = text.split(" ");
+
+        int length = 24;
+        if (words.length < length) length = words.length;
+
+        String snippet = String.join(" ", Arrays.copyOfRange(words, 0, length));
+        if (words.length > length) snippet += "...";
+
+        return snippet;
     }
 
     @GetMapping("/{id}")
