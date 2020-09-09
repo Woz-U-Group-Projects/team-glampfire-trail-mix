@@ -76,6 +76,7 @@ public class SettingsController {
         foundSettings.setYoutube(settings.getYoutube());
         foundSettings.setLinkedin(settings.getLinkedin());
         foundSettings.setGithub(settings.getGithub());
+        foundSettings.setReddit(settings.getReddit());
         foundSettings.setFavicon(settings.getFavicon());
         foundSettings.setHeadTitle(settings.getHeadTitle());
         settingsRepository.save(foundSettings);

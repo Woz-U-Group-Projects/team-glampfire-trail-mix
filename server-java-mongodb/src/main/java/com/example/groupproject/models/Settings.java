@@ -21,6 +21,7 @@ public class Settings {
     private String youtube;
     private String linkedin;
     private String github;
+    private String reddit;
     private String favicon;
     private String headTitle;
 
@@ -155,6 +156,15 @@ public class Settings {
 
     public String getGithub() {
         return github;
+    }
+
+
+    public String getReddit() {
+        return reddit;
+    }
+
+    public void setReddit(String reddit) {
+        this.reddit = reddit;
     }
 
     public void setGithub(String github) {

@@ -110,6 +110,11 @@
                 <input type="text" class="w3-input" id="github" [(ngModel)]="settings.github" name="github"
                     #github="ngModel">
             </p>
+            <p>
+                <label for="reddit"><span class="fa fa-reddit-square"></span> Reddit</label>
+                <input type="text" class="w3-input" id="reddit" [(ngModel)]="settings.reddit" name="reddit"
+                    #reddit="ngModel">
+            </p>
             
             <button type="submit" [disabled]="!settingsForm.form.valid" class="w3-btn w3-theme-l4">Save</button>
             <admin-user></admin-user>
