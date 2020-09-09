@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '@app/app.component';
 import { environment } from '@environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -9,10 +10,12 @@ import { environment } from '@environments/environment';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor(private app: AppComponent) { }
+  constructor(private app: AppComponent, private router: Router) { }
 
   ngOnInit() {
     this.app.loadExternalStyles('FontAwesome', environment.fontawesomeUrl).then();
+    this.router.navigate(['/admin/posts']);
+    
   }
 
 }
