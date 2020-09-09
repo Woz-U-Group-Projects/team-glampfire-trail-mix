@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SettingsService } from '@app/services/settings.service';
 import { Settings } from '@app/models/settings';
 import { AppComponent } from '@app/app.component';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-settings',
@@ -24,15 +25,22 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.getSettings();
+    this.app.loadExternalStyles('FontAwesome', environment.fontawesomeUrl).then();
   }
 
   onSubmit() {
     this.service.putSettings(this.settings).subscribe(settings => {
       this.settings = settings;
       alert('The settings are saved.');
-      this.app.changeTheme(this.settings.theme);
-      this.app.changeTitle(this.settings.headTitle);
-      this.app.changeFavicon(this.settings.favicon);
+      this.app.loadExternalStyles('theme', this.settings.theme, true).then(() => {
+        console.log('Theme reloaded');
+      });
+      this.app.changeTitle(this.settings.headTitle).then(() => {
+        console.log('Web page title reloaded');
+      });
+      this.app.changeFavicon(this.settings.favicon).then(() => {
+        console.log('Favicon reloaded');
+      });
       this.router.navigateByUrl('/admin').then();
     });
   }
