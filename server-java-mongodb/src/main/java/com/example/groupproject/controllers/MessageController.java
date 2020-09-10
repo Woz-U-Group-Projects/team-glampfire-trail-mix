@@ -26,7 +26,7 @@ public class MessageController {
     }
 
     @GetMapping()
-    public List<Message> readMessage() {
+    public List<Message> readMessages() {
         return messagesRepository.findAll();
     }
 
@@ -53,6 +53,7 @@ public class MessageController {
             foundMessage.setEmail(message.getEmail());
             foundMessage.setSubject(message.getSubject());
             foundMessage.setMessage(message.getMessage());
+            foundMessage.setRead(message.isRead());
             messagesRepository.save(foundMessage);
             return foundMessage;
         }
