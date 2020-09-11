@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutMeComponent } from './about-me/about-me.component';
-import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
@@ -16,7 +15,6 @@ import { SettingsComponent } from './admin/settings/settings.component';
 import { PostsComponent } from './admin/posts/posts.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { ContactMeMessagesComponent } from './admin/contact-me-messages/contact-me-messages.component';
-import { HomePageComponent } from './admin/home-page/home-page.component';
 import { PostEditComponent } from './admin/post-edit/post-edit.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { PostCreateComponent } from './admin/post-create/post-create.component';
@@ -30,9 +28,9 @@ import { RegisterComponent } from './register/register.component';
 import { CacheInterceptor} from '@app/helpers/cache.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, AboutMeComponent, HomeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
+  declarations: [AppComponent, AboutMeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
-                 ContactMeMessagesComponent, HomePageComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent,
+                 ContactMeMessagesComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent,
                  SetupwizardComponent,
                  LogoutComponent,
                  UserComponent,
