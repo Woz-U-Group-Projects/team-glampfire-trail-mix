@@ -30,7 +30,10 @@ export class MessageService {
         return this.http.put<Message>(`${this.apiUrl}/${message.id}`, message);
     }
 
-    deleteMessage(id: string): void {
-        this.http.delete<Message>(`${this.apiUrl}/${id}`);
+    deleteMessage(id: string): Observable<Message> {
+        this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
+            console.log('Removed message ' + id);
+        });
+        return null;
     }
 }
