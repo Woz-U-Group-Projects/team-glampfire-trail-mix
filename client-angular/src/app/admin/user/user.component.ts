@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
     this.service.updateUser(this.user).subscribe(user => {
       this.user = user;
       alert('Login information is saved.');
-      this.router.navigateByUrl('/admin').then();
+      this.router.navigateByUrl('/admin/posts').then();
     });
   }
 

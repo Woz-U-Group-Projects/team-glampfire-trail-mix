@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     this.profile.languages = this.languages.split(/, */);
     this.service.updateProfile(this.profile).subscribe(profile => {
       alert('Saved profile');
-      this.router.navigateByUrl('/admin').then();
+      this.router.navigateByUrl('/admin/posts').then();
     });
   }
 

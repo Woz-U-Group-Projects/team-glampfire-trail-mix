@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from '../services/message.service';
-import {Message} from '../models/message'
+import {Message} from '../models/message';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +13,8 @@ export class ContactComponent implements OnInit {
   newMessage: Message = new Message();
 
   createMessage() {
-    this.messageService.createMessage(this.newMessage).subscribe(result => {
+    this.newMessage.createDate = new Date();
+    this.messageService.createMessage(this.newMessage).subscribe(() => {
       this.newMessage = new Message();
       this.newMessage.read = false;
       alert('Message sent.');

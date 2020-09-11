@@ -41,7 +41,7 @@ export class SettingsComponent implements OnInit {
       this.app.changeFavicon(this.settings.favicon).then(() => {
         console.log('Favicon reloaded');
       });
-      this.router.navigateByUrl('/admin').then();
+      this.router.navigateByUrl('/admin/posts').then();
     });
   }
 

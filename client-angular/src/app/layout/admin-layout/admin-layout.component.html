@@ -1,4 +1,4 @@
-<header class="w3-container w3-theme w3-center">
+<header class="w3-panel w3-theme w3-center w3-mobile">
         <h1>What's the Scoop?</h1>
 </header>
 <nav class="w3-bar w3-theme-d3">
@@ -10,6 +10,8 @@
         <a routerLink="../logout" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
 </nav>
 
-<div class="w3-panel">
-        <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
+
+<footer class="w3-panel w3-theme-l2 w3-row w3-center w3-mobile">
+        <div class="w3-col">Copyright 2020 by Team Glampfire Trail Mix</div>
+</footer>
