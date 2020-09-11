@@ -13,16 +13,16 @@ export class ContactMeMessagesComponent implements OnInit {
 
   constructor(private service: MessageService) { }
 
-  deleteMessage(id: number) {
+  deleteMessage(id: string) {
     this.service.deleteMessage(id);
     alert('Message deleted!');
     location.reload();
   }
 
   ngOnInit() {
-    this.service.getMessages().subscribe(messages => {
+    this.service.readMessages().subscribe(messages => {
       this.messages = messages;
-    })
+    });
 
   }
 
