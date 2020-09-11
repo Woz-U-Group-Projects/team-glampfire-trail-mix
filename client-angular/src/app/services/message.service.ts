@@ -16,8 +16,17 @@ export class MessageService {
   getMessages(): Observable<Message[]> {
     return this.http.get<Message[]>(this.apiUrl);
   }
-  
+
   createMessage(message: Message): Observable<Message> {
     return this.http.post<Message>(this.apiUrl, message);
   }
+
+  deleteMessage(postId: number): Observable<Message> {
+    this.http.delete(`${this.apiUrl}/${postId}`).subscribe(data => {
+      console.log('Removed message');
+    });
+
+    return null;
+  }
+
 }

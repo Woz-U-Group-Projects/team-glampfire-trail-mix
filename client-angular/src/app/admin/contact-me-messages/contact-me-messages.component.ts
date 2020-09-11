@@ -13,6 +13,12 @@ export class ContactMeMessagesComponent implements OnInit {
 
   constructor(private service: MessageService) { }
 
+  deleteMessage(id: number) {
+    this.service.deleteMessage(id);
+    alert('Message deleted!');
+    location.reload();
+  }
+
   ngOnInit() {
     this.service.getMessages().subscribe(messages => {
       this.messages = messages;
