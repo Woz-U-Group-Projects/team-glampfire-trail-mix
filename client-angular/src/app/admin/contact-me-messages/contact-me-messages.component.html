@@ -1,3 +1,26 @@
 <div class="w3-container">
-    <p><strong>Under construction! </strong>This page will be where you can view messages sent to you. </p>
+    <div class="w3-card-4">
+        <div class="w3-panel w3-theme">
+            <h1>Messages</h1>
+        </div>
+
+
+        <div class="w3-container w3-padding">
+            <div class="w3-card-4" *ngFor="let message of messages">
+                <header class="w3-theme"> <strong>{{message.name }} &lt;{{ message.email }}&gt; </strong><em>{{ message.createDate | date:'shortDate' }}</em>
+                </header>
+
+                <div>
+                    <!-- <div class="w3-input"><a [routerLink]="['/admin/blog', post.id]"> Edit </a></div> -->
+                    <!-- <div class="w3-input"><a href="javascript:void(0);" (click)="deletePost(post.id)"> Delete</a></div> -->
+                    <div class="w3-panel w3-leftbar w3-border-theme w3-theme-light">{{ message.message }}</div>
+                </div>
+                <div class="w3-panel">
+                    <a class="w3-input">Reply</a>
+                    <a class="w3-input">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
