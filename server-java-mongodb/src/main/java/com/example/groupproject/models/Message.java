@@ -3,6 +3,8 @@ package com.example.groupproject.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document("messages")
 public class Message {
     @Id
@@ -12,6 +14,8 @@ public class Message {
     private String subject;
     private String message;
     private boolean read;
+
+    private Date createDate;
 
     public String getId() {
         return id;
@@ -60,4 +64,13 @@ public class Message {
     public void setRead(boolean read) {
         this.read = read;
     }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
 }

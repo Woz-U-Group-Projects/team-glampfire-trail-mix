@@ -1,9 +1,11 @@
 package com.example.groupproject.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import com.example.groupproject.models.Message;
 import com.example.groupproject.models.MessagesRepository;
+import com.example.groupproject.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,7 @@ public class MessageController {
 
     @PostMapping()
     public Message createMessage (@RequestBody Message message) {
+        message.setCreateDate(new Date());
         return messagesRepository.save(message);
     }
 
