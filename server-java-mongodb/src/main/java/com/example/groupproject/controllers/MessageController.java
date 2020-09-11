@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.example.groupproject.models.Message;
 import com.example.groupproject.models.MessagesRepository;
-import com.example.groupproject.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,6 +56,7 @@ public class MessageController {
             foundMessage.setSubject(message.getSubject());
             foundMessage.setMessage(message.getMessage());
             foundMessage.setRead(message.isRead());
+            foundMessage.setCreateDate(message.getCreateDate());
             messagesRepository.save(foundMessage);
             return foundMessage;
         }
