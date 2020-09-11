@@ -7,6 +7,7 @@ import java.util.List;
 import com.example.groupproject.models.Post;
 import com.example.groupproject.models.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +38,7 @@ public class PostController {
 
     @GetMapping()
     public List<Post> readPosts() {
-        List<Post> posts = postRepository.findAll();
+        List<Post> posts = postRepository.findAll(new Sort(new Sort.Order(Sort.Direction.DESC, "createDate")));
 
         for(Post post : posts) {
             post.setContent(getSnippet(post));
