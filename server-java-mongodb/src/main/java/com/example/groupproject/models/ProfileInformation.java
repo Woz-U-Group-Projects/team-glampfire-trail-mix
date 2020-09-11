@@ -19,4 +19,11 @@ public class ProfileInformation {
     private String[] languages;
     private String bio;
     private String email;
+    private String facebook;
+    private String twitter;
+    private String instagram;
+    private String youtube;
+    private String linkedin;
+    private String github;
+    private String reddit;
 }

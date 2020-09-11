@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../services/settings.service';
-import { Settings } from '../models/settings';
+import { ProfileService } from '@app/services/profile.service';
+import { Profile } from '@app/models/profile';
 
 @Component({
   selector: 'app-social-media',
@@ -9,13 +9,13 @@ import { Settings } from '../models/settings';
 })
 export class SocialMediaComponent implements OnInit {
 
-  settings: Settings = new Settings();
+  profile: Profile = new Profile();
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(private service: ProfileService) { }
 
   getSettings() {
-    this.settingsService.getSettings().subscribe(setttings => {
-      this.settings = setttings;
+    this.service.readProfile().subscribe(profile => {
+      this.profile = profile;
     });
   }
 

@@ -79,43 +79,6 @@
                 The web page title is required
             </div>
 
-            <h2>Social Media</h2>
-            <p>
-                <label for="facebook"><span class="fa fa-facebook-square"></span> Facebook</label>
-                <input type="text" class="w3-input" id="facebook" [(ngModel)]="settings.facebook" name="facebook"
-                    #facebook="ngModel">
-            </p>
-            <p>
-                <label for="twitter"><span class="fa fa-twitter-square"></span> Twitter</label>
-                <input type="text" class="w3-input" id="twitter" [(ngModel)]="settings.twitter" name="twitter"
-                    #twitter="ngModel">
-            </p>
-            <p>
-                <label for="instagram"><span class="fa fa-instagram"></span> Instagram</label>
-                <input type="text" class="w3-input" id="instagram" [(ngModel)]="settings.instagram" name="instagram"
-                    #instagram="ngModel">
-            </p>
-            <p>
-                <label for="youtube"><span class="fa fa-youtube-square"></span> YouTube</label>
-                <input type="text" class="w3-input" id="youtube" [(ngModel)]="settings.youtube" name="youtube"
-                    #youtube="ngModel">
-            </p>
-            <p>
-                <label for="linkedin"><span class="fa fa-linkedin-square"></span> LinkedIn</label>
-                <input type="text" class="w3-input" id="linkedin" [(ngModel)]="settings.linkedin" name="linkedin"
-                    #linkedin="ngModel">
-            </p>
-            <p>
-                <label for="github"><span class="fa fa-github-square"></span> GitHub</label>
-                <input type="text" class="w3-input" id="github" [(ngModel)]="settings.github" name="github"
-                    #github="ngModel">
-            </p>
-            <p>
-                <label for="reddit"><span class="fa fa-reddit-square"></span> Reddit</label>
-                <input type="text" class="w3-input" id="reddit" [(ngModel)]="settings.reddit" name="reddit"
-                    #reddit="ngModel">
-            </p>
-            
             <button type="submit" [disabled]="!settingsForm.form.valid" class="w3-btn w3-theme-l4">Save</button>
         </form>
     </div>

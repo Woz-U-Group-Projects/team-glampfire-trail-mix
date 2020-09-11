@@ -59,6 +59,36 @@
                        [(ngModel)]="profile.email">
             </div>
 
+            <h2>Social Media</h2>
+            <p>
+                <label for="facebook"><span class="fa fa-facebook-square"></span> Facebook</label>
+                <input type="text" class="w3-input" id="facebook" [(ngModel)]="profile.facebook" name="facebook">
+            </p>
+            <p>
+                <label for="twitter"><span class="fa fa-twitter-square"></span> Twitter</label>
+                <input type="text" class="w3-input" id="twitter" [(ngModel)]="profile.twitter" name="twitter">
+            </p>
+            <p>
+                <label for="instagram"><span class="fa fa-instagram"></span> Instagram</label>
+                <input type="text" class="w3-input" id="instagram" [(ngModel)]="profile.instagram" name="instagram">
+            </p>
+            <p>
+                <label for="youtube"><span class="fa fa-youtube-square"></span> YouTube</label>
+                <input type="text" class="w3-input" id="youtube" [(ngModel)]="profile.youtube" name="youtube">
+            </p>
+            <p>
+                <label for="linkedin"><span class="fa fa-linkedin-square"></span> LinkedIn</label>
+                <input type="text" class="w3-input" id="linkedin" [(ngModel)]="profile.linkedin" name="linkedin">
+            </p>
+            <p>
+                <label for="github"><span class="fa fa-github-square"></span> GitHub</label>
+                <input type="text" class="w3-input" id="github" [(ngModel)]="profile.github" name="github">
+            </p>
+            <p>
+                <label for="reddit"><span class="fa fa-reddit-square"></span> Reddit</label>
+                <input type="text" class="w3-input" id="reddit" [(ngModel)]="profile.reddit" name="reddit">
+            </p>
+
             <button type="submit" class="w3-btn w3-theme-l4" [disabled]="!profileForm.form.valid">Save</button>
         </form>
     </div>

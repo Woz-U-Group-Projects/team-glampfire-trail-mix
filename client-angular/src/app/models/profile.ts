@@ -7,4 +7,11 @@ export class Profile {
   languages: string[];
   bio: string;
   email: string;
+  facebook: string;
+  twitter: string;
+  instagram: string;
+  youtube: string;
+  linkedin: string;
+  github: string;
+  reddit: string;
 }

@@ -8,13 +8,6 @@ export class Settings {
     licenseUrl: string;
     poweredBy: boolean;
     theme: string;
-    facebook: string;
-    twitter: string;
-    instagram: string;
-    youtube: string;
-    linkedin: string;
-    github: string;
-    reddit: string;
     favicon: string;
     headTitle: string;
 }

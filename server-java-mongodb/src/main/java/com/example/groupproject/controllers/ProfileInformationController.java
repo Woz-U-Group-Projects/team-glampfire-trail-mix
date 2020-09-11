@@ -44,6 +44,13 @@ public class ProfileInformationController {
         foundProfileInformation.setLanguages(profileInformation.getLanguages());
         foundProfileInformation.setBio(profileInformation.getBio());
         foundProfileInformation.setEmail(profileInformation.getEmail());
+        foundProfileInformation.setFacebook(profileInformation.getFacebook());
+        foundProfileInformation.setTwitter(profileInformation.getTwitter());
+        foundProfileInformation.setInstagram(profileInformation.getInstagram());
+        foundProfileInformation.setYoutube(profileInformation.getYoutube());
+        foundProfileInformation.setLinkedin(profileInformation.getLinkedin());
+        foundProfileInformation.setGithub(profileInformation.getGithub());
+        foundProfileInformation.setReddit(profileInformation.getReddit());
         profileInformationRepository.save(foundProfileInformation);
         return foundProfileInformation;
     }

@@ -21,13 +21,6 @@ public class Settings {
     private String licenseUrl;
     private boolean poweredBy;
     private String theme;
-    private String facebook;
-    private String twitter;
-    private String instagram;
-    private String youtube;
-    private String linkedin;
-    private String github;
-    private String reddit;
     private String favicon;
     private String headTitle;
 }
