@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
   newMessage: Message = new Message();
 
   createMessage() {
-    this.newMessage.createDate = new Date();
+    this.newMessage.createDate = new Date().toISOString();
     this.messageService.createMessage(this.newMessage).subscribe(() => {
       this.newMessage = new Message();
       this.newMessage.read = false;

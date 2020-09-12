@@ -16,7 +16,7 @@
                     <div class="w3-panel w3-leftbar w3-border-theme w3-theme-light">{{ message.message }}</div>
                 </div>
                 <div class="w3-panel">
-                    <a href="mailto:{{ message.email }}" class="w3-input">Reply</a>
+                    <a href="mailto:{{ message.name }}%20%3C{{ message.email }}%3E?subject=Re:%20{{ encodeURIComponent(message.subject) }}&body={{ encodeURIComponent('\n\n\n------------\nOn ' + message.prettyDate + ' at ' + message.prettyTime + ', ' + message.name + ' wrote:\n\n' + message.message ) }}" class="w3-input">Reply</a>
                     <a href="javascript:void(0);" (click)="deleteMessage(message.id)" class="w3-input">Delete</a>
                 </div>
 
