@@ -1,8 +1,6 @@
 package com.example.groupproject.controllers;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import com.example.groupproject.models.Post;
 import com.example.groupproject.models.PostRepository;
@@ -30,7 +28,19 @@ public class PostController {
 
     @PostMapping
     public Post createPost(@RequestBody Post post) {
-        String slug = post.getTitle().replaceAll("/[^A-Za-z0-9 ]/", "").replaceAll(" ", "-").toLowerCase();
+        String slug = post.getTitle().replaceAll("[^A-Za-z0-9 ]", "").replaceAll(" ", "-").toLowerCase();
+        Post foundPost = postRepository.findById(slug).orElse(null);
+
+        if (foundPost != null) {
+            Calendar cal = new GregorianCalendar();
+            slug += "-" + cal.get(Calendar.YEAR);
+            foundPost = postRepository.findById(slug).orElse(null);
+
+            if (foundPost != null) {
+                slug = slug.substring(0, slug.length() - 4) + cal.getTimeInMillis();
+            }
+        }
+
         post.setId(slug);
         post.setCreateDate(new Date());
         return postRepository.save(post);
