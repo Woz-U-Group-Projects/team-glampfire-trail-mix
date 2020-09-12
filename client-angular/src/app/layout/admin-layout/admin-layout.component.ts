@@ -14,8 +14,11 @@ export class AdminLayoutComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log('Router URL: ' + this.router.url);
         this.app.loadExternalStyles('FontAwesome', environment.fontawesomeUrl).then();
-        this.router.navigate(['/admin/posts']).then();
+        if (this.router.url === '/admin') {
+            this.router.navigate(['/admin/posts']).then();
+        }
     }
 
 }
