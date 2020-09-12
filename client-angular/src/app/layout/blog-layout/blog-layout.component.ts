@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingsService } from '../../services/settings.service';
-import { Settings } from '../../models/settings';
+import { SettingsService } from '@app/services/settings.service';
+import { Settings } from '@app/models/settings';
 
 @Component({
   selector: 'app-blog-layout',
@@ -15,8 +15,8 @@ export class BlogLayoutComponent implements OnInit {
   m = 'm12';
 
   getSettings() {
-    this.settingsService.getSettings().subscribe(setttings => {
-      this.settings = setttings;
+    this.settingsService.getSettings().subscribe(settings => {
+      this.settings = settings;
 
       if (this.settings.license && this.settings.poweredBy) {
         this.m = 'm4';
