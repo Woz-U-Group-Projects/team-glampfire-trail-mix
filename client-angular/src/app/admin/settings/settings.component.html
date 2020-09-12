@@ -57,8 +57,8 @@
 
             <h2>Metadata</h2>
             <p>
-                <label for="theme">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label>
-                <input type="text" class="w3-input" id="theme" required [(ngModel)]="settings.theme" name="theme"
+                <label for="themeUri">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label>
+                <input type="text" class="w3-input" id="themeUri" required [(ngModel)]="settings.theme" name="theme"
                     #theme="ngModel">
             </p>
             <div [hidden]="theme.valid || theme.pristine" class="w3-panel w3-red">
