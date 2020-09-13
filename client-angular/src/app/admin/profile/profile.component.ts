@@ -17,8 +17,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.service.readProfile().subscribe(profile => {
-      this.profile = profile;
-      this.languages = this.profile.languages.join(', ');
+      if (profile) {
+        this.profile = profile;
+        this.languages = this.profile.languages.join(', ');
+      }
     });
   }
 
