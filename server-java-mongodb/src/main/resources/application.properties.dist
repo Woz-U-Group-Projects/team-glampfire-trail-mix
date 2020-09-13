@@ -8,7 +8,6 @@ spring.data.mongodb.grid-fs-database=               # GridFS database name.
 spring.data.mongodb.host=localhost                  # Mongo server host.
 spring.data.mongodb.password=                       # Login password of the mongo server.
 spring.data.mongodb.port=27017                      # Mongo server port.
-spring.data.mongodb.repositories.enabled=true       # Enable Mongo repositories.
 spring.data.mongodb.uri=mongodb://localhost/test    # Mongo database URI. When set, host and port are ignored.
 spring.data.mongodb.username=                       # Login user of the mongo server.
 
