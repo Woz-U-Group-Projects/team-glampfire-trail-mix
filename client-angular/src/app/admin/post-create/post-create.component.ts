@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '@app/services/post.service';
 import {Post} from '@app/models/post';
-import {QuillService} from '@app/services/quill.service';
 import {AppComponent} from '@app/app.component';
+import {QuillToolbarComponent} from '@app/admin/quill-toolbar/quill-toolbar.component';
 
 import Quill from 'quill';
 import * as QuillBlotFormatter from 'quill-blot-formatter';
@@ -22,13 +22,13 @@ export class PostCreateComponent implements OnInit {
     constructor(private service: PostService,
                 private route: ActivatedRoute,
                 private router: Router,
-                private quillService: QuillService,
+                private quillToolbarComponent: QuillToolbarComponent,
                 private app: AppComponent) {
     }
 
     ngOnInit() {
         this.app.loadExternalStyles('QuillTheme', environment.quillthemeUrl).then();
-        this.quill = new Quill(document.getElementById('post-editor'), this.quillService.getOptions());
+        this.quill = new Quill(document.getElementById('post-editor'), this.quillToolbarComponent.getOptions());
     }
 
     onSubmit() {

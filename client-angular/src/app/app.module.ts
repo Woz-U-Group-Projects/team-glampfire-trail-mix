@@ -26,6 +26,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { UserComponent } from './admin/user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { CacheInterceptor} from '@app/helpers/cache.interceptor';
+import { QuillToolbarComponent } from './admin/quill-toolbar/quill-toolbar.component';
 
 @NgModule({
   declarations: [AppComponent, AboutMeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
@@ -34,7 +35,8 @@ import { CacheInterceptor} from '@app/helpers/cache.interceptor';
                  SetupwizardComponent,
                  LogoutComponent,
                  UserComponent,
-                 RegisterComponent],
+                 RegisterComponent,
+                 QuillToolbarComponent],
     imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

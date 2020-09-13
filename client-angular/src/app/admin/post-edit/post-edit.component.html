@@ -16,7 +16,7 @@
                 </div>
                 <label for="editor">Content: </label>
                 <div id="editor" class="w3-input">
-                    <div id="toolbar"></div>
+                    <app-quill-toolbar></app-quill-toolbar>
                     <div id="post-editor"></div>
                 </div>
                 <button type="submit" [disabled]="!postForm.form.valid">Save</button>

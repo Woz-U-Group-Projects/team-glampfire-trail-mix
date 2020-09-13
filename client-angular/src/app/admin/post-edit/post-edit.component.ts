@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { QuillService } from '@app/services/quill.service';
+import { QuillToolbarComponent } from '@app/admin/quill-toolbar/quill-toolbar.component';
 import { PostService } from '@app/services/post.service';
 import { Post } from '@app/models/post';
 import { AppComponent } from '@app/app.component';
@@ -25,7 +25,7 @@ export class PostEditComponent implements OnInit {
   constructor(private service: PostService,
               private route: ActivatedRoute,
               private router: Router,
-              private quillService: QuillService,
+              private quillToolbarComponent: QuillToolbarComponent,
               private app: AppComponent) { }
 
 
@@ -37,7 +37,7 @@ export class PostEditComponent implements OnInit {
         const container = document.getElementById('post-editor');
 
         container.innerHTML = p.content;
-        this.quill = new Quill(container, this.quillService.getOptions());
+        this.quill = new Quill(container, this.quillToolbarComponent.getOptions());
 
         this.post = p;
       });
