@@ -1,0 +1,25 @@
+###
+### MongoDB Configuration
+###
+#spring.data.mongodb.authentication-database=
+#spring.data.mongodb.database=
+#spring.data.mongodb.field-naming-strategy=
+#spring.data.mongodb.grid-fs-database=
+#spring.data.mongodb.host=
+#spring.data.mongodb.password=
+#spring.data.mongodb.port=
+#spring.data.mongodb.repositories.type=
+spring.data.mongodb.uri=
+#spring.data.mongodb.username=
+
+###
+### Danger Zone
+###
+
+# Hibernate ddl auto (create, create-drop, validate, update, none)
+spring.jpa.hibernate.ddl-auto=create
+
+# Upload large files
+spring.servlet.multipart.max-file-size=256MB
+spring.servlet.multipart.max-request-size=256MB
+spring.servlet.multipart.enabled=true

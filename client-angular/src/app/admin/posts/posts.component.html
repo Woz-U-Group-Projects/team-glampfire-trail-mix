@@ -1,0 +1,25 @@
+<div class="w3-container">
+    <div class="w3-card-4">
+        <div class="w3-panel w3-theme">
+            <h1>Blog Posts</h1>
+        </div>
+
+        <div class="w3-container w3-padding">
+            <a [routerLink]="['/admin/posts/create']">Create New</a>
+            <div class="post-list w3-panel" *ngFor="let post of posts">
+                <div class="post-detail">
+                    <div class="post-date">
+                        <h4>{{ post.createDate | date:'shortDate' }}</h4>
+                    </div>
+                    <div class="post-title">
+                        <a [routerLink]="['/blog', post.id]"><strong>{{ post.title }}</strong></a>
+                        <div >
+                            <div class="w3-input"><a [routerLink]="['/admin/blog', post.id]"> Edit </a></div>
+                            <div class="w3-input"><a href="javascript:void(0);" (click)="deletePost(post.id)"> Delete</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

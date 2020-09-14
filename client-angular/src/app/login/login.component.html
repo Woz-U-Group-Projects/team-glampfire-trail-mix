@@ -1,0 +1,30 @@
+<div class="w3-card-4 login-card">
+    <header class="w3-container w3-light-grey">
+        <h1>Login</h1>
+    </header>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w3-container">
+        <div class="w3-panel w3-padding">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="w3-input w3-border"
+                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="w3-panel w3-yellow">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div class="w3-panel w3-padding">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="w3-input w3-border"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="w3-panel w3-yellow">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <div class="w3-panel w3-padding">
+            <button [disabled]="loading" class="w3-button w3-border w3-round-xxlarge">
+                Login
+            </button>
+        </div>
+        <div *ngIf="error" class="w3-panel w3-red">{{error}}</div>
+    </form>
+</div>

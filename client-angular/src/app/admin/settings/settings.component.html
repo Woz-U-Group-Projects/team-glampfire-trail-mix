@@ -1,0 +1,86 @@
+<div class="w3-container">
+    <div class="w3-card-4">
+        <div class="w3-panel w3-theme">
+            <h1>Settings</h1>
+        </div>
+
+        <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #settingsForm="ngForm">
+            <p>
+                <label for="blogTitle">Blog Title</label>
+                <input type="text" class="w3-input" id="blogTitle" required [(ngModel)]="settings.blogTitle"
+                    name="blogTitle" #blogTitle="ngModel">
+            </p>
+            <div [hidden]="blogTitle.valid || blogTitle.pristine" class="w3-panel w3-red">
+                Blog title is required
+            </div>
+            <p>
+                <label for="blogSubTitle">Blog Sub-Title</label>
+                <input type="text" class="w3-input" id="blogSubTitle" [(ngModel)]="settings.blogSubTitle"
+                    name="blogSubTitle" #blogSubTitle="ngModel">
+            </p>
+
+            <h2>Footer</h2>
+            <p>
+                <label for="copyright">Copyright</label>
+                <input type="text" class="w3-input" id="copyright" required [(ngModel)]="settings.copyright"
+                    name="copyright" #copyright="ngModel">
+            </p>
+            <div [hidden]="copyright.valid || copyright.pristine" class="w3-panel w3-red">
+                Copyright is required
+            </div>
+            <p>
+                <input type="checkbox" id="license" [(ngModel)]="settings.license" name="license"
+                    #license="ngModel">
+                <label for="license"> License</label>
+            </p>
+            <p [hidden]="!settings.license">
+                <label for="licenseTitle">License Title</label>
+                <input type="text" class="w3-input" required id="licenseTitle" [(ngModel)]="settings.licenseTitle"
+                    name="licenseTitle" #licenseTitle="ngModel">
+            </p>
+            <div [hidden]="licenseTitle.valid || licenseTitle.pristine" class="w3-panel w3-red">
+                The title of the license is required
+            </div>
+            <p [hidden]="!settings.license">
+                <label for="licenseUrl">License URL</label>
+                <input type="text" class="w3-input" required id="licenseUrl" [(ngModel)]="settings.licenseUrl" name="licenseUrl"
+                    #licenseUrl="ngModel">
+            </p>
+            <div [hidden]="licenseUrl.valid || licenseUrl.pristine" class="w3-panel w3-red">
+                The URL of the license is required
+            </div>
+            <p>
+                <input type="checkbox" id="poweredBy" [(ngModel)]="settings.poweredBy" name="poweredBy"
+                    #poweredBy="ngModel">
+                <label for="poweredBy"> Powered By</label>
+            </p>
+
+            <h2>Metadata</h2>
+            <p>
+                <label for="themeUri">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label>
+                <input type="text" class="w3-input" id="themeUri" required [(ngModel)]="settings.theme" name="theme"
+                    #theme="ngModel">
+            </p>
+            <div [hidden]="theme.valid || theme.pristine" class="w3-panel w3-red">
+                A W3.CSS theme is required
+            </div>
+            <p>
+                <img src="{{settings.favicon}}" style="width: 32px;">
+                <label for="favicon">Favicon URL</label>
+                <input type="text" class="w3-input" id="favicon" [(ngModel)]="settings.favicon" name="favicon"
+                    #favicon="ngModel">
+            </p>
+            <p>
+                <label for="headTitle">Web Page Title</label>
+                <input type="text" class="w3-input" id="headTitle" required [(ngModel)]="settings.headTitle"
+                    name="headTitle" #headTitle="ngModel">
+            </p>
+            <div [hidden]="headTitle.valid || headTitle.pristine" class="w3-panel w3-red">
+                The web page title is required
+            </div>
+
+            <button type="submit" [disabled]="!settingsForm.form.valid" class="w3-btn w3-theme-l4">Save</button>
+        </form>
+    </div>
+    <admin-user></admin-user>
+</div>

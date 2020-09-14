@@ -1,0 +1,4 @@
+div div button:last-child,
+div div span:nth-child(3) {
+    margin-right: 0.5rem;
+}

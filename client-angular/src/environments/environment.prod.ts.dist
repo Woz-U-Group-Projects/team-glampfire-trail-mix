@@ -1,0 +1,6 @@
+export const environment = {
+  production: true,
+  apiUrl: 'http://localhost:8080',
+  fontawesomeUrl: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+  quillthemeUrl: 'https://cdn.quilljs.com/1.3.6/quill.snow.css'
+};

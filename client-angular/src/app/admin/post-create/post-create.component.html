@@ -1,0 +1,26 @@
+<div class="w3-container">
+    <div class="w3-card-4">
+        <div class="w3-panel w3-theme">
+            <h1>Create Post</h1>
+        </div>
+
+        <div id="post-content" class="w3-container">
+            <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #postForm="ngForm">
+                <p>
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" name="title" class="w3-input" required [(ngModel)]="post.title"
+                           #postTitle="ngModel">
+                </p>
+                <div [hidden]="postTitle.valid || postTitle.pristine">
+                    Title is required
+                </div>
+                <label for="editor">Content: </label>
+                <div id="editor" class="w3-input">
+                    <app-quill-toolbar></app-quill-toolbar>
+                    <div id="post-editor"></div>
+                </div>
+                <button type="submit" [disabled]="!postForm.form.valid">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
