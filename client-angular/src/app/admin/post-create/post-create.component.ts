@@ -35,10 +35,18 @@ export class PostCreateComponent implements OnInit {
         this.post.content = document.getElementsByClassName('ql-editor')[0].innerHTML;
 
         // Send the post to the service
-        alert('Post saved successfully.');
-        this.service.createPost(this.post);
-
-        this.router.navigate(['/admin/posts']).then();
+        console.log('Creating post "' + this.post.title + '"');
+        this.service.createPost(this.post).subscribe(
+                post => {
+                    alert('Post saved successfully.');
+                    console.log('Post ' + post.id + ' created\n');
+                    console.log(post);
+                    this.router.navigate(['/admin/posts']).then();
+                },
+                response => {
+                    console.log('An error message has occurred in POST: ', response);
+                }
+            );
     }
 
 }
