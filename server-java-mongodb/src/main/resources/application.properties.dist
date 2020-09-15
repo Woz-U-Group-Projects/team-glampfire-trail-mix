@@ -9,7 +9,7 @@
 #spring.data.mongodb.password=
 #spring.data.mongodb.port=
 #spring.data.mongodb.repositories.type=
-spring.data.mongodb.uri=
+#spring.data.mongodb.uri=
 #spring.data.mongodb.username=
 
 ###
