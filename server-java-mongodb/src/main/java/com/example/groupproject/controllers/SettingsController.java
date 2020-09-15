@@ -35,10 +35,10 @@ public class SettingsController {
             newSettings.setId("0");
             newSettings.setBlogTitle("My Blog");
             newSettings.setBlogSubTitle("Blog SubTitle");
-            newSettings.setCopyright("Copyright 2020");
+            newSettings.setCopyright(true);
             newSettings.setLicense(true);
-            newSettings.setLicenseTitle("Creative Commons License");
-            newSettings.setLicenseUrl("http://creativecommons.org/licenses/by-sa/4.0/");
+            newSettings.setLicenseTitle("CC BY 4.0");
+            newSettings.setLicenseUrl("http://creativecommons.org/licenses/by/4.0/");
             newSettings.setPoweredBy(true);
             newSettings.setTheme(defaultTheme);
             newSettings.setHeadTitle("My Blog");
@@ -60,7 +60,7 @@ public class SettingsController {
 
         foundSettings.setBlogTitle(settings.getBlogTitle());
         foundSettings.setBlogSubTitle(settings.getBlogSubTitle());
-        foundSettings.setCopyright(settings.getCopyright());
+        foundSettings.setCopyright(settings.isCopyright());
         foundSettings.setLicense(settings.isLicense());
         foundSettings.setLicenseTitle(settings.getLicenseTitle());
         foundSettings.setLicenseUrl(settings.getLicenseUrl());

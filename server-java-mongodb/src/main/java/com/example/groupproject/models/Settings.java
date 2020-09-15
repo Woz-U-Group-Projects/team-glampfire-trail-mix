@@ -15,7 +15,7 @@ public class Settings {
     private String id;
     private String blogTitle;
     private String blogSubTitle;
-    private String copyright;
+    private boolean copyright;
     private boolean license;
     private String licenseTitle;
     private String licenseUrl;

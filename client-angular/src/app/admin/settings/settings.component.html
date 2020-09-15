@@ -21,13 +21,10 @@
 
             <h2>Footer</h2>
             <p>
-                <label for="copyright">Copyright</label>
-                <input type="text" class="w3-input" id="copyright" required [(ngModel)]="settings.copyright"
+                <input type="checkbox" id="copyright" [(ngModel)]="settings.copyright"
                     name="copyright" #copyright="ngModel">
+                <label for="copyright"> Copyright</label>
             </p>
-            <div [hidden]="copyright.valid || copyright.pristine" class="w3-panel w3-red">
-                Copyright is required
-            </div>
             <p>
                 <input type="checkbox" id="license" [(ngModel)]="settings.license" name="license"
                     #license="ngModel">
