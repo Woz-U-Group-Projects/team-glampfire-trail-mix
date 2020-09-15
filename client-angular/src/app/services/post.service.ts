@@ -47,16 +47,7 @@ export class PostService {
 
     }
 
-    createPost(post: Post): void {
-        console.log('Creating post "' + post.title + '"');
-        this.http.post<Post>(`${this.apiUrl}`, post, {headers}).subscribe(
-            val => {
-                console.log('Post ' + val.id + ' created\n');
-                console.log(val);
-            },
-            response => {
-                console.log('An error message has occurred in POST: ', response);
-            }
-        );
+    createPost(post: Post): Observable<Post> {
+        return this.http.post<Post>(this.apiUrl, post);
     }
 }
