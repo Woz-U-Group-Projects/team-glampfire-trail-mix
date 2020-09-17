@@ -4,7 +4,7 @@
             <h1>Settings</h1>
         </div>
 
-        <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #settingsForm="ngForm">
+        <form class="w3-container w3-padding" (ngSubmit)="onSubmit()" #settingsForm="ngForm" name="settingsForm">
             <p>
                 <label for="blogTitle">Blog Title</label>
                 <input type="text" class="w3-input" id="blogTitle" required [(ngModel)]="settings.blogTitle"
@@ -54,7 +54,11 @@
 
             <h2>Metadata</h2>
             <p>
-                <label for="themeUri">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label>
+                <label for="themeUri">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label><br>
+                <select id="themeValue" name="themeValue" (change)="changeThemeValue();">
+                    <option disabled>Change</option>
+                    <option *ngFor="let themeModel of themes" value="{{themeModel.url}}">{{themeModel.name}}</option>
+                </select>
                 <input type="text" class="w3-input" id="themeUri" required [(ngModel)]="settings.theme" name="theme"
                     #theme="ngModel">
             </p>
