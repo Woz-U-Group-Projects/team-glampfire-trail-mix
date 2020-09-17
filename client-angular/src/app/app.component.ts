@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
             const link = document.createElement('link');
             const oldLink = document.getElementById('dynamic-favicon');
             link.id = 'dynamic-favicon';
-            link.rel = 'icon';
+            link.rel = 'shortcut icon';
             link.type = 'image/x-icon';
             link.href = src;
             if (oldLink) {
