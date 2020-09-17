@@ -1,10 +1,10 @@
-package com.example.groupproject.controllers;
+package com.teamGlampfireTrailMix.wts.controllers;
 
-import com.example.groupproject.models.ProfileInformation;
+import com.teamGlampfireTrailMix.wts.models.ProfileInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.groupproject.models.ProfileInformationRepository;
+import com.teamGlampfireTrailMix.wts.models.ProfileInformationRepository;
 
 @RestController
 @RequestMapping("/profileinfo")

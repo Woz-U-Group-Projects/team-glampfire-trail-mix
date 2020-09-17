@@ -1,4 +1,4 @@
-package com.example.groupproject.models;
+package com.teamGlampfireTrailMix.wts.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,14 +11,11 @@ import java.util.Date;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-@Document("messages")
-public class Message {
+@Document("posts")
+public class Post {
     @Id
     private String id;
-    private String name;
-    private String email;
-    private String subject;
-    private String message;
-    private boolean read;
+    private String title;
+    private String content;
     private Date createDate;
 }

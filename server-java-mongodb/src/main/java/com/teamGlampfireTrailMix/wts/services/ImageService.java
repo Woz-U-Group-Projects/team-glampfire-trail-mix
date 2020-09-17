@@ -1,6 +1,6 @@
-package com.example.groupproject.services;
+package com.teamGlampfireTrailMix.wts.services;
 
-import com.example.groupproject.models.Image;
+import com.teamGlampfireTrailMix.wts.models.Image;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.client.gridfs.model.GridFSFile;

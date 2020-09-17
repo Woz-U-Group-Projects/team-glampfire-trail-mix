@@ -1,10 +1,10 @@
-package com.example.groupproject.controllers;
+package com.teamGlampfireTrailMix.wts.controllers;
 
 import java.util.Date;
 import java.util.List;
 
-import com.example.groupproject.models.Message;
-import com.example.groupproject.models.MessagesRepository;
+import com.teamGlampfireTrailMix.wts.models.Message;
+import com.teamGlampfireTrailMix.wts.models.MessagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;

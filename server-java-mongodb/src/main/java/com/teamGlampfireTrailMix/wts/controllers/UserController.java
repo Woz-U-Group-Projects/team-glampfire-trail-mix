@@ -1,7 +1,7 @@
-package com.example.groupproject.controllers;
+package com.teamGlampfireTrailMix.wts.controllers;
 
-import com.example.groupproject.models.User;
-import com.example.groupproject.models.UsersRepository;
+import com.teamGlampfireTrailMix.wts.models.User;
+import com.teamGlampfireTrailMix.wts.models.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
 public class UserController {
 
     private UsersRepository repository;
@@ -28,19 +27,22 @@ public class UserController {
         this.repository = repository;
     }
 
-    @PostMapping()
-    public void createUser(@RequestBody User user) {
+    @PostMapping("/register")
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         User foundUser = repository.findById("0").orElse(null);
 
-        if (foundUser != null) {
-            return;
+        if (foundUser == null) {
+            User newUser = new User();
+            newUser.setId("0");
+            newUser.setUsername(user.getUsername());
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+            newUser.setPassword(encoder.encode(user.getPassword()));
+            newUser.setRole(user.getRole());
+            repository.save(newUser);
+            return ResponseEntity.ok(newUser);
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-
-        user.setId("0");
-        user.setRole("ADMIN");
-        user.setPassword(encoder.encode(user.getPassword()));
-
-        repository.save(user);
     }
 
     @PostMapping("/authenticate")
@@ -59,7 +61,7 @@ public class UserController {
         }
     }
 
-    @GetMapping()
+    @GetMapping("/users")
     public ResponseEntity<List<User>> readUsers() {
         List<User> users = repository.findAll();
 
@@ -72,7 +74,7 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/users/{username}")
     public ResponseEntity<User> readUser(@PathVariable String username) {
         User foundUser = repository.findByUsername(username);
 
@@ -91,7 +93,7 @@ public class UserController {
         return "{ \"status\": " + registered + " }";
     }
 
-    @PutMapping("/{username}")
+    @PutMapping("/users/{username}")
     public ResponseEntity<User> updateUser(@PathVariable String username, @RequestBody User user) {
         User foundUser = repository.findByUsername(username);
 

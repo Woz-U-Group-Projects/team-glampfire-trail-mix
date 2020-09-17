@@ -1,6 +1,6 @@
-package com.example.groupproject.config;
+package com.teamGlampfireTrailMix.wts.config;
 
-import com.example.groupproject.services.MongoUserDetailsService;
+import com.teamGlampfireTrailMix.wts.services.MongoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -50,17 +50,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/users/**").hasRole("ADMIN")
                 // permitAll()
-                .antMatchers(HttpMethod.POST, "/register").permitAll()
+                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
                 .antMatchers(HttpMethod.GET, "/images/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/messages").permitAll()
                 .antMatchers(HttpMethod.GET, "/posts").permitAll()
                 .antMatchers(HttpMethod.GET, "/posts/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/profileinfo").permitAll()
                 .antMatchers(HttpMethod.POST, "/register").permitAll()
+                .antMatchers(HttpMethod.GET, "/registered").permitAll()
                 .antMatchers(HttpMethod.GET, "/settings").permitAll()
-                .antMatchers(HttpMethod.POST, "/users").permitAll()
-                .antMatchers(HttpMethod.POST, "/users/authenticate").permitAll()
-                .antMatchers(HttpMethod.GET, "/users/registered").permitAll()
                 .and().httpBasic()
                 .and().sessionManagement().disable();
     }

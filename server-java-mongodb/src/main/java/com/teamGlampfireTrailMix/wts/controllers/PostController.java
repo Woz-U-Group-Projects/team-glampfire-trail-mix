@@ -1,9 +1,9 @@
-package com.example.groupproject.controllers;
+package com.teamGlampfireTrailMix.wts.controllers;
 
 import java.util.*;
 
-import com.example.groupproject.models.Post;
-import com.example.groupproject.models.PostRepository;
+import com.teamGlampfireTrailMix.wts.models.Post;
+import com.teamGlampfireTrailMix.wts.models.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;

@@ -10,11 +10,11 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>groupproject</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>groupproject</name>
-    <description>Demo project for Spring Boot</description>
+    <groupId>com.teamGlampfireTrailMix</groupId>
+    <artifactId>wts</artifactId>
+    <version>1.0.0</version>
+    <name>What's the Scoop?™</name>
+    <description>A simple blogging platform</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

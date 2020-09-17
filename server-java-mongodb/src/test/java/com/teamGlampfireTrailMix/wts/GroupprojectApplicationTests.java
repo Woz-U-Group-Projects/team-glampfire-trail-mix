@@ -1,4 +1,4 @@
-package com.example.groupproject;
+package com.teamGlampfireTrailMix.wts;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,9 @@
-package com.example.groupproject.services;
+package com.teamGlampfireTrailMix.wts.services;
 
 import java.util.Collections;
 import java.util.List;
+
+import com.teamGlampfireTrailMix.wts.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,8 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.example.groupproject.models.User;
-import com.example.groupproject.models.UsersRepository;
+import com.teamGlampfireTrailMix.wts.models.UsersRepository;
 
 @Component
 public class MongoUserDetailsService implements UserDetailsService {

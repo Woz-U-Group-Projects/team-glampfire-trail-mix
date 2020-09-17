@@ -1,7 +1,7 @@
-package com.example.groupproject.controllers;
+package com.teamGlampfireTrailMix.wts.controllers;
 
-import com.example.groupproject.models.Settings;
-import com.example.groupproject.models.SettingsRepository;
+import com.teamGlampfireTrailMix.wts.models.Settings;
+import com.teamGlampfireTrailMix.wts.models.SettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

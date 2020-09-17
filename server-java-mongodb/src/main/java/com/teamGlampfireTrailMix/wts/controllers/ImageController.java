@@ -1,7 +1,7 @@
-package com.example.groupproject.controllers;
+package com.teamGlampfireTrailMix.wts.controllers;
 
-import com.example.groupproject.models.Image;
-import com.example.groupproject.services.ImageService;
+import com.teamGlampfireTrailMix.wts.models.Image;
+import com.teamGlampfireTrailMix.wts.services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;

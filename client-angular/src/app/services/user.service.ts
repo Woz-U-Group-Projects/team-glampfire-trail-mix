@@ -15,20 +15,20 @@ export class UserService {
 
     createUser(user: User): Observable<User> {
         console.log('Creating User ' + user.id);
-        return this.http.post<User>(this.apiUrl, user);
+        return this.http.post<User>(`${environment.apiUrl}/register`, user);
     }
 
-    readUser(): Observable<User> {
-        return this.http.get<User>(this.apiUrl);
+    readUser(username: string): Observable<User> {
+        return this.http.get<User>(`${this.apiUrl}/${username}`);
     }
 
-    updateUser(user: User): Observable<User> {
-        console.log('Updating user ' + user.id)
+    updateUser(username: string, user: User): Observable<User> {
+        console.log('Updating user ' + user.username);
         // Update the user on the backend
-        return this.http.put<User>(this.apiUrl, user);
+        return this.http.put<User>(`${this.apiUrl}/${username}`, user);
     }
 
     isRegistered(): Observable<Registered> {
-        return this.http.get<Registered>(this.apiUrl + '/registered');
+        return this.http.get<Registered>(`${environment.apiUrl}/registered`);
     }
 }

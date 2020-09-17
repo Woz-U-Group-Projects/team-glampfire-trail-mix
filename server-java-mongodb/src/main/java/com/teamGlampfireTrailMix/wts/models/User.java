@@ -1,4 +1,4 @@
-package com.example.groupproject.models;
+package com.teamGlampfireTrailMix.wts.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

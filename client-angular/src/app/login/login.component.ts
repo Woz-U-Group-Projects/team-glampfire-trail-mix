@@ -5,7 +5,6 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '@app/services';
 import { UserService } from '@app/services/user.service';
-import { Registered } from '@app/models/registered';
 
 @Component({ templateUrl: './login.component.html',
              styleUrls: ['./login.component.css'] })
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
+            this.router.navigate(['/']).then();
         }
     }
 
@@ -61,8 +60,8 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
+                () => {
+                    this.router.navigate([this.returnUrl]).then();
                 },
                 error => {
                     this.error = error;
