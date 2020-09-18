@@ -22,3 +22,7 @@
 :host ::ng-deep blockquote + .ql-indent-1 {
     padding-left: 6rem;
 }
+
+:host ::ng-deep .ql-size-large {
+    font-size: 1.5em;
+}
