@@ -8,7 +8,7 @@
     <p *ngIf="profile.age"><b>Age:</b> {{ profile.age }}</p>
     <p *ngIf="profile.email"><b>Email:</b> {{ profile.email }}</p>
 
-    <div *ngIf="profile.languages.length > 0">
+    <div *ngIf="profile.languages">
         <p><b>Languages:</b></p>
         <ul *ngFor="let language of profile.languages">
             <li>{{ language }}</li>
@@ -20,6 +20,8 @@
         <p>{{ profile.bio }}</p>
     </div>
 
-    <p><b>Social Media:</b></p>
-    <app-social-media></app-social-media>
+    <div *ngIf="profile.facebook || profile.twitter || profile.github || profile.instagram || profile.linkedin || profile.reddit || profile.youtube">
+        <p><b>Social Media:</b></p>
+        <app-social-media></app-social-media>
+    </div>
 </div>
