@@ -24,7 +24,7 @@ export class PostService {
         return this.http.get<Post>(`${this.apiUrl}/${postId}`);
     }
 
-    deletePost(postId: number): Observable<Post> {
+    deletePost(postId: string): Observable<Post> {
         this.http.delete(`${this.apiUrl}/${postId}`).subscribe(() => {
             console.log('Removed post');
         });

@@ -1,3 +1,8 @@
 label {
     font-weight: bold;
 }
+
+label#choose-color-label {
+    font-weight: normal;
+    font-style: italic;
+}

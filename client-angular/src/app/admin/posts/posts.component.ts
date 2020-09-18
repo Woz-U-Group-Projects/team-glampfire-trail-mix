@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
 
   constructor(private service: PostService) { }
 
-  deletePost(id: number) {
+  deletePost(id: string) {
     this.service.deletePost(id);
     alert('Post deleted!');
     location.reload();

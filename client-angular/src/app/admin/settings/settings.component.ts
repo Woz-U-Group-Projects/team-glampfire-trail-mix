@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {SettingsService} from '@app/services/settings.service';
 import {Settings} from '@app/models/settings';

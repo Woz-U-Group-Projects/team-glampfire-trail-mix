@@ -30,7 +30,7 @@ export class PostEditComponent implements OnInit {
 
 
   ngOnInit() {
-    this.app.loadExternalStyles('QuillTheme', environment.quillthemeUrl).then();
+    this.app.loadExternalStyles('QuillTheme', environment.quillThemeUrl).then();
     // Pull the post from the current route
     this.route.paramMap.subscribe(params => {
       this.service.readPost(params.get('id')).subscribe(p => {

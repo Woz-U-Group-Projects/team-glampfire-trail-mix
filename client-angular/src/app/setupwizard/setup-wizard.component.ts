@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { User } from '../models/user';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-setupwizard',
-  templateUrl: './setupwizard.component.html',
-  styleUrls: ['./setupwizard.component.css']
+  selector: 'app-setup-wizard',
+  templateUrl: './setup-wizard.component.html',
+  styleUrls: ['./setup-wizard.component.css']
 })
-export class SetupwizardComponent implements OnInit {
+export class SetupWizardComponent implements OnInit {
 
   // Represent the User with an Object
 
@@ -22,12 +20,12 @@ export class SetupwizardComponent implements OnInit {
 
   });
   // Represent the form controls with objects
-  firstName = new FormControl('');
-  lastName = new FormControl('');
-  userName = new FormControl('');
+  // firstName = new FormControl('');
+  // lastName = new FormControl('');
+  // userName = new FormControl('');
   password = new FormControl('');
   emailAddress = new FormControl('');
-  socialMedia = new FormControl('');
+  // socialMedia = new FormControl('');
 
 
 
@@ -72,12 +70,12 @@ export class SetupwizardComponent implements OnInit {
     // this.user.userName = this.userName.value;
     // this.user.password = this.password.value;
     // this.user.emailAddress= this.emailAddress.value;
-    // this.user.socialMedia = this.socialMedia.value; 
+    // this.user.socialMedia = this.socialMedia.value;
 
     // this.service.updateUser(this.user);
 
     console.log('submit Successful:', this.model);
   }
 
-  
+
 }

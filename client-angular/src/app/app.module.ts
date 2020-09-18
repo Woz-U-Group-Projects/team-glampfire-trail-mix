@@ -21,7 +21,7 @@ import { PostCreateComponent } from './admin/post-create/post-create.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BasicAuthInterceptor } from '@app/helpers/basic-auth.interceptors';
 import { ErrorInterceptor } from '@app/helpers/error.interceptors';
-import { SetupwizardComponent } from './setupwizard/setupwizard.component';
+import { SetupWizardComponent } from '@app/setupwizard/setup-wizard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserComponent } from './admin/user/user.component';
 import { RegisterComponent } from './register/register.component';
@@ -32,7 +32,7 @@ import { QuillToolbarComponent } from './admin/quill-toolbar/quill-toolbar.compo
   declarations: [AppComponent, AboutMeComponent, BlogComponent, ContactComponent, BlogDetailComponent, SafeHtmlPipe,
                  BlogLayoutComponent, AdminLayoutComponent, LoginComponent, SettingsComponent, PostsComponent, ProfileComponent,
                  ContactMeMessagesComponent, PostEditComponent, SocialMediaComponent, PostCreateComponent,
-                 SetupwizardComponent,
+                 SetupWizardComponent,
                  LogoutComponent,
                  UserComponent,
                  RegisterComponent,

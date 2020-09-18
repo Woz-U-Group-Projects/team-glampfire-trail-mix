@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ProfileService} from '@app/services/profile.service';
-import {Profile} from '@app/models/profile';
 import {SettingsService} from '@app/services/settings.service';
 import {Settings} from '@app/models/settings';
 

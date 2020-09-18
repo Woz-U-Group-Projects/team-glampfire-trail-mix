@@ -27,7 +27,7 @@ export class PostCreateComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.app.loadExternalStyles('QuillTheme', environment.quillthemeUrl).then();
+        this.app.loadExternalStyles('QuillTheme', environment.quillThemeUrl).then();
         this.quill = new Quill(document.getElementById('post-editor'), this.quillToolbarComponent.getOptions());
     }
 

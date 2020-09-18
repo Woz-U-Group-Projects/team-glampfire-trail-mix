@@ -22,13 +22,13 @@ export class MessageService {
         return this.http.get<Message[]>(this.apiUrl);
     }
 
-    readMessage(id: string): Observable<Message> {
-        return this.http.get<Message>(`${this.apiUrl}/${id}`);
-    }
-
-    updateMessage(message: Message): Observable<Message> {
-        return this.http.put<Message>(`${this.apiUrl}/${message.id}`, message);
-    }
+    // readMessage(id: string): Observable<Message> {
+    //     return this.http.get<Message>(`${this.apiUrl}/${id}`);
+    // }
+    //
+    // updateMessage(message: Message): Observable<Message> {
+    //     return this.http.put<Message>(`${this.apiUrl}/${message.id}`, message);
+    // }
 
     deleteMessage(id: string): Observable<Message> {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {

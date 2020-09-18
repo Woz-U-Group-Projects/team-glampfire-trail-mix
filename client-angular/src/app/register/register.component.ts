@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.user.role = 'ADMIN';
-    this.service.createUser(this.user).subscribe(user => {
+    this.service.createUser(this.user).subscribe(() => {
       this.router.navigateByUrl('/admin/profile').then();
     });
   }

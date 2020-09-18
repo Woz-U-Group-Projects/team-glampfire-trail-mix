@@ -55,6 +55,7 @@
             <h2>Metadata</h2>
             <p>
                 <label for="themeUri">W3.CSS <a href="https://www.w3schools.com/w3css/w3css_color_themes.asp" target="_blank">Theme</a> URL</label><br>
+                <label for="themeValue" id="choose-color-label">Pick a color: </label>
                 <select id="themeValue" name="themeValue" (change)="changeThemeValue();">
                     <option disabled>Change</option>
                     <option *ngFor="let themeModel of themes" value="{{themeModel.url}}">{{themeModel.name}}</option>
@@ -66,7 +67,7 @@
                 A W3.CSS theme is required
             </div>
             <p>
-                <img src="{{settings.favicon}}" style="width: 32px;">
+                <img src="{{settings.favicon}}" style="width: 32px;" alt="favicon">
                 <label for="favicon">Favicon URL</label>
                 <input type="text" class="w3-input" id="favicon" [(ngModel)]="settings.favicon" name="favicon"
                     #favicon="ngModel">
